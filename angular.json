@@ -1,11 +1,21 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "db24dc1e-48aa-4322-a681-c641c3fac75f"
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "newspaper": {
+    "mdb5-angular-ui-kit-pro-advanced": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        },
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -13,19 +23,22 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/newspaper",
+            "outputPath": "dist/mdb5-angular-ui-kit-pro-advanced",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/chart.js/dist/chart.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -64,10 +77,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "newspaper:build:production"
+              "browserTarget": "mdb5-angular-ui-kit-pro-advanced:build:production"
             },
             "development": {
-              "browserTarget": "newspaper:build:development"
+              "browserTarget": "mdb5-angular-ui-kit-pro-advanced:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -75,7 +88,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "newspaper:build"
+            "browserTarget": "mdb5-angular-ui-kit-pro-advanced:build"
           }
         },
         "test": {
@@ -85,17 +98,19 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
+            "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss"
             ],
             "scripts": []
           }
         }
       }
     }
-  }
+  },
+  "defaultProject": "mdb5-angular-ui-kit-pro-advanced"
 }

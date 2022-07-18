@@ -1,17 +1,10 @@
-# newspaper
+# Mdb5AngularUiKitProAdvanced
 
-## Ngo Tan Trong 19130249
-
-## Le Nguyen Duc Hung 19130082 !!
-
-## Pham Anh Tuan 19130257
-
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.1.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.4.
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
