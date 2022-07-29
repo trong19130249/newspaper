@@ -1,0 +1,277 @@
+header {
+  font-family: "Segoe UI";
+}
+header .new-row {
+  background: white;
+  margin: 0 auto;
+  display: flex;
+  border-top: 1px #dcdcdc solid;
+  border-bottom: 1px #dcdcdc solid;
+}
+header .new-row .wrapper {
+  width: 1170px;
+  height: 36px;
+  margin: auto;
+  position: relative;
+  color: black;
+  font-size: 12px;
+}
+header .new-row .wrapper .left-side {
+  display: inline-block;
+  height: 36px;
+}
+header .new-row .wrapper .left-side * {
+  display: inline-block;
+  margin-top: -1px;
+}
+header .new-row .wrapper .left-side p {
+  margin-left: 3px;
+}
+header .new-row .wrapper .left-side .breaking-new {
+  margin-left: 40px;
+  background-color: #fa3d3d;
+  color: white;
+  padding: 9px;
+}
+header .new-row .wrapper .right-side {
+  display: inline-block;
+  height: 36px;
+}
+header .new-row .wrapper .right-side .justify-content-end .arrow-breaking-new {
+  display: inline-block;
+  color: #808080;
+  margin: 0;
+}
+header .new-row .wrapper .right-side .justify-content-end .arrow-breaking-new li {
+  display: inline-block;
+  margin-left: 8px;
+  font-size: 10px;
+  border: 1px solid #dcdcdc;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+header .new-row .wrapper .right-side .justify-content-end .arrow-breaking-new li i {
+  margin-left: 7px;
+}
+header .new-row .wrapper .right-side .justify-content-end .arrow-breaking-new li:hover {
+  color: white;
+  background-color: #fa3d3d;
+}
+header .new-row .wrapper .right-side .justify-content-end .format-a a {
+  color: black;
+  margin-left: 15px;
+}
+header .new-row .wrapper .right-side .justify-content-end .format-a a i {
+  font-size: 15px;
+  margin-top: 5px;
+}
+header .new-row .wrapper .right-side .justify-content-end .format-a a:hover {
+  color: #0088ff;
+}
+header .new-row .wrapper .right-side .justify-content-end .format-a .side-nav {
+  margin-top: 49px !important;
+}
+header .new-row .wrapper .right-side .justify-content-end .format-a .nav-bars-btn {
+  cursor: pointer;
+}
+header .new-row .wrapper .right-side .justify-content-end .format-a .nav-input:checked ~ .nav-overlay {
+  display: block;
+}
+header .new-row .wrapper .right-side .justify-content-end .format-a .nav-input:checked ~ .content-overlay {
+  transform: translateX(0%);
+}
+header .new-row .wrapper .right-side .justify-content-end .format-a .nav-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: none;
+}
+header .new-row .wrapper .right-side .justify-content-end .format-a .content-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 345px;
+  max-width: 100%;
+  background-color: black;
+  z-index: 10;
+  transform: translateX(100%);
+  transition: transform linear 0.3s;
+}
+header .new-row .wrapper .right-side .justify-content-end .format-a .content-overlay i {
+  font-size: 24px;
+  color: white;
+  margin: 20px auto;
+  cursor: pointer;
+}
+header .new-row .wrapper .right-side .justify-content-end .format-a .content-overlay i:hover {
+  color: red;
+}
+header .logo-row {
+  background: white;
+  margin: 0 auto;
+  display: flex;
+}
+header .logo-row .wrapper {
+  display: inline-block;
+  height: 130px;
+  width: 1170px;
+  margin: auto;
+  position: relative;
+}
+header .logo-row .wrapper .logo {
+  display: inline-block;
+  width: 300px;
+  height: 49px;
+  margin-top: 40px;
+}
+header .logo-row .wrapper .logo .logo-link img {
+  width: 300px;
+  height: 49px;
+}
+header .logo-row .wrapper .advertise {
+  display: inline-block;
+  width: 62.2222%;
+  height: 90px;
+  margin-top: 25px;
+}
+header .logo-row .wrapper .advertise .advertise-link img {
+  width: 100%;
+  height: 90px;
+}
+header .navbar {
+  padding: 0;
+  height: 60px;
+}
+header .navbar .container-fluid {
+  padding: 0 15px;
+  margin: 0 2.506%;
+}
+header .navbar .container-fluid .navbar-collapse {
+  height: 60px;
+  background-color: black;
+}
+header .navbar .container-fluid .navbar-collapse .navbar-nav {
+  font-size: 15px;
+  height: 60px;
+}
+header .navbar .container-fluid .navbar-collapse .navbar-nav .nav-item {
+  height: 60px;
+}
+header .navbar .container-fluid .navbar-collapse .navbar-nav .nav-item a {
+  color: white;
+  height: 50px;
+}
+header .navbar .container-fluid .navbar-collapse .navbar-nav .nav-item .ellipsis {
+  width: 56px;
+  height: 50px;
+  cursor: pointer;
+}
+header .navbar .container-fluid .navbar-collapse .navbar-nav .nav-item .ellipsis p:nth-child(1) {
+  margin-left: 20px;
+}
+header .navbar .container-fluid .navbar-collapse .navbar-nav .nav-item .ellipsis p {
+  display: inline-block;
+  border-radius: 50%;
+  color: white;
+  background-color: white;
+  width: 4px;
+  height: 4px;
+  margin-top: 18px;
+  margin-left: 3px;
+}
+header .navbar .container-fluid .navbar-collapse .input-group .form-control-new {
+  border-radius: 0;
+  height: 60px;
+  background-color: black;
+  border: none;
+  border-left: 1px #3b3b3b solid;
+  font-size: 13px;
+  color: #adadad;
+}
+header .navbar .container-fluid .navbar-collapse .input-group input[type=search]:focus {
+  outline: none;
+}
+header .navbar .container-fluid .navbar-collapse .input-group .input-group-text i:hover {
+  color: #0088ff;
+}
+header .navbar .container-fluid .navbar-collapse .input-group .input-group-text i {
+  cursor: pointer;
+}
+header .navbar .container-fluid .navbar-collapse .align-items-center .text-reset i {
+  color: white;
+}
+header .navbar .container-fluid .navbar-collapse .align-items-center .text-reset i:hover {
+  color: #0088ff;
+}
+
+.nav-item:hover {
+  background-color: #0088ff;
+}
+
+.dropdown-menu {
+  border-radius: 0;
+}
+.dropdown-menu .seperate-line {
+  height: 2px;
+  background-color: #0088ff;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+.dropdown .dropdown-content {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  color: white;
+  background-color: black;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.dropdown:hover .dropdown-item:hover {
+  background-color: #0088ff;
+  border-radius: 0;
+}
+
+.element {
+  height: 40px;
+  width: 40px;
+  margin: 8px 20px 8px 8px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to bottom, #57c1eb 0%, #246fa8 100%);
+}
+
+.elements {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.white {
+  fill: #FFFFFF;
+}
+
+.gray {
+  fill: #E0E0E0;
+}
+
+.yellow {
+  fill: #FFEB3B;
+}
+
+/*# sourceMappingURL=header.component.css.map */
