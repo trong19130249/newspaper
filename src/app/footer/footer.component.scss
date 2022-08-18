@@ -65,7 +65,7 @@
     display: inline-block;
     vertical-align: middle;
     border-radius: 50%;
-    -webkit-transform: translateZ(0);
+    //-webkit-transform: translateZ(0);
     transform: translateZ(0);
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
@@ -85,7 +85,23 @@
     width: 2px;
     height: 100%;
     background-color: #0d6efd;
+
   }
+  .item:hover{
+    .date{
+      &:before{
+        background-color: #0d6efd;
+        border: 3px solid #0d6efd;
+      }
+    }
+
+  }
+  h3:hover{
+  color: #0d6efd;
+}
+.btn:hover{
+  color: #0d6efd;
+}
 
 }
 
