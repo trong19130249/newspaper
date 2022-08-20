@@ -48,9 +48,16 @@ import { MdbCookiesManagementService } from 'mdb-angular-cookies-management';
 import { MdbStorageManagementService } from 'mdb-angular-storage-management';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import {RouterModule, Routes} from "@angular/router";
+import { HomeComponent } from './home/home.component';
+import {CommonModule} from "@angular/common";
 
+const routes: Routes = [
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'home', component:  HomeComponent},
+];
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, FooterComponent],
+  declarations: [AppComponent, HeaderComponent, FooterComponent, HomeComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -95,8 +102,13 @@ import { FooterComponent } from './footer/footer.component';
     MdbTreeviewModule,
     MdbTransferModule,
     MdbMentionModule,
+    RouterModule,
+    CommonModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [MdbCookiesManagementService, MdbStorageManagementService],
   bootstrap: [AppComponent],
+  exports: [RouterModule]
+
 })
 export class AppModule {}
