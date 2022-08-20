@@ -51,13 +51,16 @@ import { FooterComponent } from './footer/footer.component';
 import {RouterModule, Routes} from "@angular/router";
 import { HomeComponent } from './home/home.component';
 import {CommonModule} from "@angular/common";
+import { CategoryComponent } from './category/category.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component:  HomeComponent},
+    { path: 'category', component:  CategoryComponent},
+
 ];
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, FooterComponent, HomeComponent],
+  declarations: [AppComponent, HeaderComponent, FooterComponent, HomeComponent, CategoryComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
