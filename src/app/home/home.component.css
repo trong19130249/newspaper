@@ -1,0 +1,19 @@
+.carousel-item .carousel-caption {
+  text-align: left;
+  right: 5%;
+}
+
+#carousel:hover .carousel-desc {
+  max-height: 100px;
+  opacity: 1;
+  transition: opacity 0.4s ease-out, max-height 0.9s ease-out;
+}
+#carousel .carousel-desc {
+  max-height: 0;
+  line-height: 18px;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.4s ease-out, max-height 0.4s ease-out, margin 0.4s;
+}
+
+/*# sourceMappingURL=home.component.css.map */
