@@ -7,7 +7,9 @@ $gray-white: #808080;
 $gray-black: rgba(0, 0, 0, 0.3);
 $search-white: #adadad;
 $bold-gray-black: #3b3b3b;
+
 $zindex-sidenav: 1035;
+
 header {
   font-family: "Segoe UI";
 
@@ -250,7 +252,9 @@ header {
 
   .navbar {
     padding: 0;
+
     z-index: $zindex-sidenav;
+
 
     .container-fluid {
       width: 1200px;
