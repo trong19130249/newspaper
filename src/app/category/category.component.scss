@@ -1,0 +1,23 @@
+input{
+  background-color: #0d6efd;
+}
+.date{
+  font-size: 14px;
+}
+@media only screen and (max-width:1040px) {
+  .d-flex{
+    flex-direction: column;
+  }
+  .w-140{
+    width: 400px;
+  }
+  .w{
+    width: 100px
+  }
+}
+.img-fluid{
+  width: 373px;
+}
+.fs-7{
+  font-size: 13px;
+}
