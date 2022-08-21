@@ -27,12 +27,12 @@ export class HomeComponent implements OnInit {
 
         for (const i of listTemp) {
          //  console.log(descTemp)
-          this.listItems.push(new Item(i.title[0],i.category[0], i.description[0],i.image[0], i.link[0], i.updated[0]));
+            const descTemp:any= await this.feedService.parseDescription("<div>"+i.description+"</div>");
+          this.listItems.push(new Item(i.title[0],i.category[0], descTemp?.div._,i.image[0], i.link[0], i.updated[0]));
         }
-      const descTemp= await this.feedService.parseDescription("<div>"+this.listItems[0].description+"</div>");
-      console.log(descTemp)
 
-      console.log(this.listItems[0].description);
+
+      console.log(this.listItems);
 
   }
 }
