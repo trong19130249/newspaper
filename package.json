@@ -21,6 +21,7 @@
     "@angular/platform-browser-dynamic": "~13.2.4",
     "@angular/router": "~13.2.4",
     "@fortawesome/fontawesome-free": "^6.0.0",
+    "axios": "^0.27.2",
     "chart.js": "^3.1.1",
     "g": "^2.0.1",
     "mdb-angular-calendar": "file:mdb-angular-calendar-2.0.0.tgz",
@@ -38,7 +39,6 @@
     "swiper": "^6.8.4",
     "timers": "^0.1.1",
     "tslib": "^2.1.0",
-    "xml-js": "^1.6.11",
     "xml2js": "^0.4.23",
     "zone.js": "~0.11.4"
   },
@@ -48,6 +48,7 @@
     "@angular/compiler-cli": "~13.2.4",
     "@types/jasmine": "~3.6.0",
     "@types/node": "^12.11.1",
+    "@types/xml2js": "^0.4.11",
     "jasmine-core": "~3.8.0",
     "karma": "~6.3.0",
     "karma-chrome-launcher": "~3.1.0",
