@@ -9,6 +9,7 @@ $search-white: #adadad;
 $bold-gray-black: #3b3b3b;
 
 $zindex-sidenav: 1035;
+$zindex-toast: 1060;
 
 header {
   font-family: "Segoe UI";
@@ -141,7 +142,7 @@ header {
               width: 345px;
               max-width: 100%;
               background-color: $black;
-              z-index: 200;
+              z-index: $zindex-toast;
               transform: translateX(100%);
               transition: transform linear 0.3s;
 

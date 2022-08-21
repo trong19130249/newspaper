@@ -111,7 +111,7 @@ header .new-row .wrapper .right-side .justify-content-end .format-a .content-ove
   width: 345px;
   max-width: 100%;
   background-color: #1f2024;
-  z-index: 200;
+  z-index: 1060;
   transform: translateX(100%);
   transition: transform linear 0.3s;
 }
