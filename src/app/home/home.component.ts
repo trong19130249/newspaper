@@ -3,6 +3,7 @@ import { Channel } from '../model/Channel';
 import {FeedService} from "../share/feed.service";
 import {Title} from "@angular/platform-browser";
 import { Item } from '../model/Item';
+import {log} from "util";
 
 @Component({
   selector: 'app-home',
@@ -25,9 +26,13 @@ export class HomeComponent implements OnInit {
         let listTemp: any = Array.isArray(channel.item) ? channel.item : [];
 
         for (const i of listTemp) {
-            this.listItems.push(new Item(i.title[0],i.category[0], i.description[0],i.image[0], i.link[0], i.updated[0]));
+         //  console.log(descTemp)
+          this.listItems.push(new Item(i.title[0],i.category[0], i.description[0],i.image[0], i.link[0], i.updated[0]));
         }
-        console.log(this.listItems);
+      const descTemp= await this.feedService.parseDescription("<div>"+this.listItems[0].description+"</div>");
+      console.log(descTemp)
+
+      console.log(this.listItems[0].description);
 
   }
 }

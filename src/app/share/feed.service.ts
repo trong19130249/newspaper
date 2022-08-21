@@ -19,4 +19,12 @@ export class FeedService {
     });
     return result1;
   }
+   parseDescription(descHtml:string){
+    let result1;
+    parseString(descHtml, (err, result) => {
+      result1 = result;
+    });
+    return result1;
+  }
+
 }
