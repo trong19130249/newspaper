@@ -39,14 +39,23 @@ ul {
 
 .post-items {
   display: grid;
-  height: 470px;
-  grid-template-rows: repeat(5, 1fr);
-  grid-template-columns: 1fr 1fr;
-  column-gap: 1.5rem;
-  row-gap: 1.5rem;
+  column-gap: 1rem;
+  row-gap: 1rem;
 }
 .post-items li:first-child {
-  grid-row: 1/6;
+  height: 325px;
+}
+
+@media (min-width: 992px) {
+  .post-items {
+    grid-template-rows: repeat(5, 1fr);
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  .post-items li:first-child {
+    grid-row: 1/6;
+    height: auto;
+  }
 }
 
 /*# sourceMappingURL=home.component.css.map */

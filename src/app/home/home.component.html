@@ -1,8 +1,8 @@
 <section class="carousel-area container py-4" id="carousel">
-  <mdb-carousel [controls]="true" [indicators]="true">
-    <mdb-carousel-item class="carousel-item">
+  <mdb-carousel *ngIf="listItems.length!==0" [controls]="true" [indicators]="true" >
+    <mdb-carousel-item *ngFor="let item of listItems | slice:0:10; let i=index" class="carousel-item" >
       <img
-        src="https://photo-cms-tpo.zadn.vn/700x420/Uploaded/2022/yrfjpyszlyr/2022_08_12/tp-mua-4-166.jpg"
+        src="{{item.image}}"
         class="d-block w-100"
         alt="..."
       />
@@ -15,46 +15,24 @@
       <div class="carousel-caption d-none d-md-block">
         <div class="carousel-date">
           <i class="fab fa-hotjar"></i>
-          <span>25/12/2022</span>
+          <span>{{item.updated}}</span>
         </div>
-        <h2 class="carousel-title"> Sổ hộ khẩu nào sẽ bị công an thu hồi? </h2>
-        <div class="carousel-desc small">TPO - Không phải tất cả các hộ khẩu của người dân TPHCM khi tham gia giao dịch
-          đều bị công an thu hồi. Việc thu hồi chỉ được thực hiện với sổ hộ khẩu có thông tin thay đổi.
-        </div>
+        <h2 class="carousel-title"> {{item.title}} </h2>
+        <div class="carousel-desc small">{{item.description}}</div>
       </div>
 
     </mdb-carousel-item>
-    <mdb-carousel-item class="carousel-item">
-      <img
-        src="https://photo-cms-tpo.zadn.vn/700x420/Uploaded/2022/yrfjpyszlyr/2022_08_12/tp-mua-4-166.jpg"
-        class="d-block w-100"
-        alt="..."
-      />
-      <a href="#!">
-        <div class="mask" style="background:linear-gradient(to bottom, transparent, rgba(0,0,0,0.75));"></div>
-      </a>
-      <div class="carousel-caption d-none d-md-block">
-        <div class="carousel-date">
-          <i class="fab fa-hotjar"></i>
-          <span>25/12/2022</span>
-        </div>
-        <h2 class="carousel-title"> Sổ hộ khẩu nào sẽ bị công an thu hồi? </h2>
-        <div class="carousel-desc small">TPO - Không phải tất cả các hộ khẩu của người dân TPHCM khi tham gia giao dịch
-          đều bị công an thu hồi. Việc thu hồi chỉ được thực hiện với sổ hộ khẩu có thông tin thay đổi.
-        </div>
-      </div>
 
-    </mdb-carousel-item>
 
   </mdb-carousel>
 </section>
 <section class="main container">
-  <div class="wrapper row">
+  <div class="wrapper row  py-4" >
     <div class="col-xs-12 col-md-8">
-      <mdb-tabs>
+      <mdb-tabs class="my-4">
         <mdb-tab>
           <ng-template mdbTabTitle>
-            <span><i class="fab fa-lg fa-mdb me-2"></i> Tab 1</span>
+            <span><i class="fab fa-lg fa-mdb me-2"></i> {{title}}</span>
           </ng-template>
           <ng-template mdbTabContent>
             <div class="box-container">
@@ -234,7 +212,6 @@
                     </div>
                   </div>
                 </li>
-
               </ul>
             </div>
           </ng-template>
