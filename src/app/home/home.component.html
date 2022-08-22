@@ -26,105 +26,40 @@
 <section class="main container">
   <div class="wrapper row  py-4" >
     <div class="col-xs-12 col-md-8">
-      <mdb-tabs class="my-4">
-        <mdb-tab>
+      <mdb-tabs *ngIf="arrData.length==sizeRss" class="my-4 custom-tabs" id="tab-all">
+        <mdb-tab *ngFor="let item of arrData">
           <ng-template mdbTabTitle>
-            <span><i class="fab fa-lg fa-mdb me-2"></i> {{title}}</span>
+            <span>{{item.heading}}</span>
           </ng-template>
           <ng-template mdbTabContent>
             <div class="box-container">
               <ul class="post-items ">
-                <li class="post-item"  >
-
-                  <div class="bg-image position-relative"
-                       style="
-                        background-image: url('https://photo-cms-tpo.zadn.vn/700x420/Uploaded/2022/yrfjpyszlyr/2022_08_12/tp-mua-4-166.jpg');
-                        height: 100%;
-                      "
-                  >
-                    <a href="#!">
-                      <div class="mask" style="background:linear-gradient(to bottom, transparent, rgba(0,0,0,0.75));"></div>
-                    </a>
-                    <div class="carousel-caption d-none d-md-block text-start">
-                      <h3 class="carousel-title"> Sổ hộ khẩu nào sẽ bị công an thu hồi? </h3>
-                      <div class="carousel-date small">
-                        <i class="fab fa-hotjar"></i>
-                        <span>25/12/2022</span>
-                      </div>
+                <li class="post-item" *ngFor="let d of item.data.slice(0, 6); index as i; first as isFirst" >
+                    <div *ngIf="isFirst" class="bg-image position-relative" style="
+                                            background-image: url('{{d.image}}');
+                                            height: 100%;
+                                          ">
+                        <a href="#!">
+                            <div class="mask" style="background:linear-gradient(to bottom, transparent, rgba(0,0,0,0.75));"></div>
+                        </a>
+                        <div class="carousel-caption d-none d-md-block text-start">
+                            <h3 class="carousel-title">{{d.title}}</h3>
+                            <div class="carousel-date small">
+                                <i class="fab fa-hotjar"></i>
+                                <span>{{d.updated}}</span>
+                            </div>
+                        </div>
                     </div>
-                  </div>
-                </li>
-                <li class="post-item">
-                  <div class="d-flex position-relative">
+                  <div *ngIf="!isFirst"  class="d-flex position-relative">
                     <img
-                      src="https://mdbootstrap.com/img/new/standard/city/041.webp"
+                      src="{{d.image}}"
                       class="flex-shrink-0 me-3"
                       style="max-width: 6.875rem"
                       alt="..."
                     />
                     <div>
-                      <span class="post-date">2022-08-14 16:05:47</span>
-                      <h5 class="mt-0 small"> Ai chi trả cho những bữa tiệc của CLB Giám đốc CDC miền Bắc? </h5>
-                      <a href="#" class="stretched-link"></a>
-                    </div>
-                  </div>
-                </li>
-                <li class="post-item">
-                  <div class="d-flex position-relative">
-                    <img
-                      src="https://mdbootstrap.com/img/new/standard/city/041.webp"
-                      class="flex-shrink-0 me-3"
-                      style="max-width: 6.875rem"
-                      alt="..."
-                    />
-                    <div>
-                      <span class="post-date">2022-08-14 16:05:47</span>
-                      <h5 class="mt-0 small"> Ai chi trả cho những bữa tiệc của CLB Giám đốc CDC miền Bắc? </h5>
-                      <a href="#" class="stretched-link"></a>
-                    </div>
-                  </div>
-                </li>
-                <li class="post-item">
-                  <div class="d-flex position-relative">
-                    <img
-                      src="https://mdbootstrap.com/img/new/standard/city/041.webp"
-                      class="flex-shrink-0 me-3"
-                      style="max-width: 6.875rem"
-                      alt="..."
-                    />
-                    <div>
-                      <span class="post-date">2022-08-14 16:05:47</span>
-                      <h5 class="mt-0 small"> Ai chi trả cho những bữa tiệc của CLB Giám đốc CDC miền Bắc? </h5>
-                      <a href="#" class="stretched-link"></a>
-                    </div>
-                  </div>
-                </li>
-                <li class="post-item">
-                  <div class="d-flex position-relative">
-                    <img
-                      src="https://mdbootstrap.com/img/new/standard/city/041.webp"
-                      class="flex-shrink-0 me-3"
-                      style="max-width: 6.875rem"
-                      alt="..."
-                    />
-                    <div>
-                      <span class="post-date">2022-08-14 16:05:47</span>
-                      <h5 class="mt-0 small"> Ai chi trả cho những bữa tiệc của CLB Giám đốc CDC miền Bắc? </h5>
-                      <a href="#" class="stretched-link"></a>
-                    </div>
-                  </div>
-                </li>
-                <li class="post-item">
-                  <div class="d-flex position-relative">
-                    <img
-                      src="https://mdbootstrap.com/img/new/standard/city/041.webp"
-                      class="flex-shrink-0 me-3"
-                      style="max-width: 6.875rem"
-                      alt="..."
-                    />
-                    <div>
-                      <span class="post-date">2022-08-14 16:05:47</span>
-                      <h5 class="mt-0 small"> Ai chi trả cho những bữa tiệc của CLB Giám đốc CDC miền Bắc? </h5>
+                      <span class="post-date">{{d.updated}}</span>
+                      <h5 class="mt-0 small">{{d.title}}</h5>
                       <a href="#" class="stretched-link"></a>
                     </div>
                   </div>
@@ -132,89 +67,6 @@
               </ul>
             </div>
           </ng-template>
-        </mdb-tab>
-        <mdb-tab title="Kinh tế">
-          <ng-template mdbTabContent>
-            <div class="box-container">
-              <ul class="post-items ">
-                <li class="post-item"  >
-
-                  <div class="bg-image position-relative"
-                       style="
-                        background-image: url('https://photo-cms-tpo.zadn.vn/700x420/Uploaded/2022/yrfjpyszlyr/2022_08_12/tp-mua-4-166.jpg');
-                        height: 100%;
-                      "
-                  >
-
-                  </div>
-                </li>
-                <li class="post-item">
-                  <div class="d-flex position-relative">
-                    <img
-                      src="https://mdbootstrap.com/img/new/standard/city/041.webp"
-                      class="flex-shrink-0 me-3"
-                      style="max-width: 6.875rem"
-                      alt="..."
-                    />
-                    <div>
-                      <span class="post-date">2022-08-14 16:05:47</span>
-                      <h5 class="mt-0 small"> Ai chi trả cho những bữa tiệc của CLB Giám đốc CDC miền Bắc? </h5>
-                      <a href="#" class="stretched-link"></a>
-                    </div>
-                  </div>
-                </li>
-                <li class="post-item">
-                  <div class="d-flex position-relative">
-                    <img
-                      src="https://mdbootstrap.com/img/new/standard/city/041.webp"
-                      class="flex-shrink-0 me-3"
-                      style="max-width: 6.875rem"
-                      alt="..."
-                    />
-                    <div>
-                      <span class="post-date">2022-08-14 16:05:47</span>
-                      <h5 class="mt-0 small"> Ai chi trả cho những bữa tiệc của CLB Giám đốc CDC miền Bắc? </h5>
-                      <a href="#" class="stretched-link"></a>
-                    </div>
-                  </div>
-                </li>
-                <li class="post-item">
-                  <div class="d-flex position-relative">
-                    <img
-                      src="https://mdbootstrap.com/img/new/standard/city/041.webp"
-                      class="flex-shrink-0 me-3"
-                      style="max-width: 6.875rem"
-                      alt="..."
-                    />
-                    <div>
-                      <span class="post-date">2022-08-14 16:05:47</span>
-                      <h5 class="mt-0 small"> Ai chi trả cho những bữa tiệc của CLB Giám đốc CDC miền Bắc? </h5>
-                      <a href="#" class="stretched-link"></a>
-                    </div>
-                  </div>
-                </li>
-                <li class="post-item">
-                  <div class="d-flex position-relative">
-                    <img
-                      src="https://mdbootstrap.com/img/new/standard/city/041.webp"
-                      class="flex-shrink-0 me-3"
-                      style="max-width: 6.875rem"
-                      alt="..."
-                    />
-                    <div>
-                      <span class="post-date">2022-08-14 16:05:47</span>
-                      <h5 class="mt-0 small"> Ai chi trả cho những bữa tiệc của CLB Giám đốc CDC miền Bắc? </h5>
-                      <a href="#" class="stretched-link"></a>
-                    </div>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </ng-template>
-
-        </mdb-tab>
-        <mdb-tab title="Tab 3">
-          <ng-template mdbTabContent> Tab content 1 </ng-template>
         </mdb-tab>
       </mdb-tabs>
     </div>

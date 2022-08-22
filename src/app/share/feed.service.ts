@@ -20,11 +20,19 @@ export class FeedService {
     return result1;
   }
    parseDescription(descHtml:string){
-    let result1;
-    parseString(descHtml, (err, result) => {
-      result1 = result;
-    });
-    return result1;
-  }
+        let result1;
+        parseString(descHtml, (err, result) => {
+        result1 = result;
+        });
+        return result1;
+    }
+    async getData(url: string): Promise<any> {
+        const {data} = await homeApi.getData(url);
+        let result1;
+        parseString(data, (err, result) => {
+            result1 = result;
+        });
+        return result1;
+    }
 
 }
