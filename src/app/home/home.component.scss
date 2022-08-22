@@ -81,3 +81,29 @@ ul {
     gap: 1.5rem;
   }
 }
+input {
+  background-color: #0d6efd;
+}
+.date {
+  font-size: 14px;
+}
+@media only screen and (max-width: 1040px) {
+  .reponcss {
+    flex-direction: column;
+  }
+  .w-140 {
+    width: 400px;
+  }
+  .w {
+    width: 100px;
+  }
+  .col-6 {
+    width: 100%;
+  }
+}
+.img-fluid {
+  width: 373px;
+}
+.fs-7 {
+  font-size: 13px;
+}
