@@ -103,6 +103,8 @@ input {
 }
 .img-fluid {
   width: 373px;
+  object-fit: cover;
+  height: 100%;
 }
 .fs-7 {
   font-size: 13px;

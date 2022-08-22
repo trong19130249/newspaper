@@ -1,65 +1,100 @@
 <section class="carousel-area container py-4" id="carousel">
-  <mdb-carousel *ngIf="listItems.length!==0" [controls]="true" [indicators]="true" >
-    <mdb-carousel-item *ngFor="let item of listItems | slice:0:10; let i=index" class="carousel-item" >
-      <img
-        src="{{item.image}}"
-        class="d-block w-100"
-        alt="..."
-      />
+  <mdb-carousel
+    *ngIf="listItems.length !== 0"
+    [controls]="true"
+    [indicators]="true"
+  >
+    <mdb-carousel-item
+      *ngFor="let item of listItems | slice: 0:10; let i = index"
+      class="carousel-item"
+    >
+      <img src="{{ item.image }}" class="d-block w-100" alt="..." />
       <a href="#!">
-        <div class="mask" style="background:linear-gradient(to bottom, transparent, rgba(0,0,0,0.75));"></div>
+        <div
+          class="mask"
+          style="
+            background: linear-gradient(
+              to bottom,
+              transparent,
+              rgba(0, 0, 0, 0.75)
+            );
+          "
+        ></div>
       </a>
       <div class="carousel-caption d-none d-md-block">
         <div class="carousel-date">
           <i class="fab fa-hotjar"></i>
-          <span>{{item.updated}}</span>
+          <span>{{ item.updated }}</span>
         </div>
-        <h2 class="carousel-title"> {{item.title}} </h2>
-        <div class="carousel-desc small">{{item.description}}</div>
+        <h2 class="carousel-title">{{ item.title }}</h2>
+        <div class="carousel-desc small">{{ item.description }}</div>
       </div>
-
     </mdb-carousel-item>
-
-
   </mdb-carousel>
 </section>
 <section class="main container">
-  <div class="wrapper row  py-4" >
+  <div class="wrapper row py-4">
     <div class="col-xs-12 col-md-8">
-      <mdb-tabs *ngIf="arrData.length==sizeRss" class="my-4 custom-tabs" id="tab-all">
+      <mdb-tabs
+        *ngIf="arrData.length == sizeRss"
+        class="my-4 custom-tabs"
+        id="tab-all"
+      >
         <mdb-tab *ngFor="let item of arrData">
           <ng-template mdbTabTitle>
-            <span>{{item.heading}}</span>
+            <span>{{ item.heading }}</span>
           </ng-template>
           <ng-template mdbTabContent>
             <div class="box-container">
-              <ul class="post-items ">
-                <li class="post-item" *ngFor="let d of item.data.slice(0, 6); index as i; first as isFirst" >
-                    <div *ngIf="isFirst" class="bg-image position-relative" style="
-                                            background-image: url('{{d.image}}');
-                                            height: 100%;
-                                          ">
-                        <a href="#!">
-                            <div class="mask" style="background:linear-gradient(to bottom, transparent, rgba(0,0,0,0.75));"></div>
-                        </a>
-                        <div class="carousel-caption d-none d-md-block text-start">
-                            <h3 class="carousel-title">{{d.title}}</h3>
-                            <div class="carousel-date small">
-                                <i class="fab fa-hotjar"></i>
-                                <span>{{d.updated}}</span>
-                            </div>
-                        </div>
+              <ul class="post-items">
+                <li
+                  class="post-item"
+                  *ngFor="
+                    let d of item.data.slice(0, 6);
+                    index as i;
+                    first as isFirst
+                  "
+                >
+                  <div
+                    *ngIf="isFirst"
+                    class="bg-image position-relative"
+                    style="
+                    background-image: url('{{ d.image }}');height: 100%;"
+                  >
+                    <a href="#!">
+                      <div
+                        class="mask"
+                        style="
+                          background: linear-gradient(
+                            to bottom,
+                            transparent,
+                            rgba(0, 0, 0, 0.75)
+                          );
+                        "
+                      ></div>
+                    </a>
+                    <div class="carousel-caption d-none d-md-block text-start">
+                      <h3 class="carousel-title">{{ d.title }}</h3>
+                      <div class="carousel-date small">
+                        <i class="fab fa-hotjar"></i>
+                        <span>{{ d.updated }}</span>
+                      </div>
                     </div>
-                  <div *ngIf="!isFirst"  class="d-flex position-relative">
+                  </div>
+                  <div *ngIf="!isFirst" class="d-flex position-relative">
                     <img
-                      src="{{d.image}}"
+                      src="{{ d.image }}"
                       class="flex-shrink-0 me-3"
-                      style="max-width: 6.875rem;object-fit: cover;object-position: center;"
+                      style="
+                        max-width: 6.875rem;
+                        object-fit: cover;
+                        object-position: center;
+                      "
                       alt="..."
                     />
                     <div>
-                      <span class="post-date">{{d.updated}}</span>
-                      <h5 class="mt-0 small">{{d.title}}</h5>
+                      <span class="post-date">{{ d.updated }}</span>
+                      <h5 class="mt-0 small">{{ d.title }}</h5>
                       <a href="#" class="stretched-link"></a>
                     </div>
                   </div>
@@ -69,206 +104,350 @@
           </ng-template>
         </mdb-tab>
       </mdb-tabs>
-    <!--Racing and lifeStyle-->
-    <div class="row">
-        <div class="col-xs-12  col-md-6">
-            <div class="d-flex justify-content-between">
-                <h5 class="p-2">Racing</h5>
-                <div class="p-2">
-                    <a href=""><i class="fas fa-angle-left pe-1 ps-1 me-1 border border-1 "></i></a>
-                    <a href=""><i class="fas fa-angle-right pe-1 ps-1 border border-1"></i></a>
-                </div>
+      <!--Racing and lifeStyle-->
+      <div class="row">
+        <div class="col-xs-12 col-md-6">
+          <div class="d-flex justify-content-between">
+            <h5 class="p-2">Racing</h5>
+            <div class="p-2">
+              <a href=""
+                ><i class="fas fa-angle-left pe-1 ps-1 me-1 border border-1"></i
+              ></a>
+              <a href=""
+                ><i class="fas fa-angle-right pe-1 ps-1 border border-1"></i
+              ></a>
             </div>
-            <div class="progress mx-2" style="height: 2px">
-                <div class="progress-bar " role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0"
-                    aria-valuemax="100"></div>
-            </div>
-            <div class=" p-2">
-                <a href="">
-                    <div class="bg-image hover-zoom">
-                        <img style="width: 100%;object-fit: cover;" src="https://photo-cms-tpo.zadn.vn/300x180/Uploaded/2022/bpivpvoi/2022_08_20/showbiz7-6961.jpg"
-                            alt="" class="img-fluid" />
-                    </div>
-                </a>
-            </div>
-            <div class=" p-2">
-                <i class="ps-1 pe-1 fa-sm far fa-clock"></i>
-                <span class="ps-1 date meta-item tie-icon">Oct 27, 2018</span>
-                <a href="">
-                    <h5 class="ps-1">Showbiz 20/8: Sau khi công khai chuyện tình cảm, Doãn Hải My về quê Đoàn Văn Hậu ra
-                        mắt?</h5>
-                </a>
-                <p class="fs-7 ps-1 ">TPO - Hình ảnh Doãn Hải My chụp ảnh cùng Đoàn Văn Hậu ở một vùng quê khiến nhiều khán
-                    giả dự đoán người đẹp về Thái Bình ra mắt nhà bạn trai.</p>
-                <a href=""><button type="button" class="btn btn-info">Read more >></button></a>
-            </div>
-            <div class="col-6 col-sm-12 d-flex ">
-                <div class="p-2">
-                    <div class="bg-image hover-overlay ripple shadow-1-strong rounded " data-mdb-ripple-color="light">
-                        <img src="https://photo-cms-tpo.zadn.vn/300x180/Uploaded/2022/bpivpvoi/2022_08_20/showbiz7-6961.jpg"
-                            alt="" class="img-fluid" />
-                        <a href="#!">
-                            <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);"></div>
-                        </a>
-                    </div>
-                </div>
-                <div class="">
-                    <i class="fas fa-lightbulb ps-1" style="color:#f64e4e;font-size: 12px "></i>
-                    <i class="ps-2 pe-1 fa-sm far fa-clock" style="font-size: 10px"></i>
-                    <span class=" date meta-item tie-icon " style="font-size: 12px">Oct 27, 2018</span>
-                    <a href="">
-                        <h5 class="ps-1" style="font-size: 14px">Showbiz 20/8: Sau khi công khai chuyện tình cảm, Doãn Hải
-                            My về quê Đoàn Văn Hậu ra mắt?</h5>
-                    </a>
-                </div>
-            </div>
-            <div class="col-6 col-sm-12 d-flex">
-                <div class="p-2">
-                    <div class="bg-image hover-overlay ripple shadow-1-strong rounded " data-mdb-ripple-color="light">
-                        <img src="https://photo-cms-tpo.zadn.vn/300x180/Uploaded/2022/bpivpvoi/2022_08_20/showbiz7-6961.jpg"
-                            alt="" class="img-fluid" />
-                        <a href="#!">
-                            <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);"></div>
-                        </a>
-                    </div>
-                </div>
-                <div class="">
-                    <i class="ps-1 pe-1 fa-sm far fa-clock" style="font-size: 10px"></i>
-                    <span class=" date meta-item tie-icon " style="font-size: 12px">Oct 27, 2018</span>
-                    <a href="">
-                        <h5 class="ps-1" style="font-size: 14px">Showbiz 20/8: Sau khi công khai chuyện tình cảm, Doãn Hải
-                            My về quê Đoàn Văn Hậu ra mắt?</h5>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-xs-12  col-md-6">
-            <div class="d-flex justify-content-between">
-                <h5 class="p-2">LifeStyle</h5>
-                <div class="p-2">
-                    <a href=""><i class="fas fa-angle-left pe-1 ps-1 me-1 border border-1 "></i></a>
-                    <a href=""><i class="fas fa-angle-right pe-1 ps-1 border border-1"></i></a>
-                </div>
-            </div>
-            <div class="progress mx-2" style="height: 2px">
-                <div class="progress-bar " role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0"
-                    aria-valuemax="100"></div>
-            </div>
-            <div class=" p-2">
-                <a href="">
-                    <div class="bg-image hover-zoom">
-                        <img src="https://photo-cms-tpo.zadn.vn/300x180/Uploaded/2022/bpivpvoi/2022_08_20/showbiz7-6961.jpg"
-                            alt="" class="img-fluid" />
-                    </div>
-                </a>
-            </div>
-            <div class=" p-2">
-                <i class="ps-1 pe-1 fa-sm far fa-clock"></i>
-                <span class="ps-1 date meta-item tie-icon">Oct 27, 2018</span>
-                <a href="">
-                    <h5 class="ps-1">Showbiz 20/8: Sau khi công khai chuyện tình cảm, Doãn Hải My về quê Đoàn Văn Hậu ra
-                        mắt?</h5>
-                </a>
-                <p class="fs-7 ps-1 ">TPO - Hình ảnh Doãn Hải My chụp ảnh cùng Đoàn Văn Hậu ở một vùng quê khiến nhiều khán
-                    giả dự đoán người đẹp về Thái Bình ra mắt nhà bạn trai.</p>
-                <a href=""><button type="button" class="btn btn-warning">Read more >></button></a>
-            </div>
-            <div class="col-6 col-sm-12 d-flex">
-                <div class="p-2">
-                    <div class="bg-image hover-overlay ripple shadow-1-strong rounded " data-mdb-ripple-color="light">
-                        <img src="https://photo-cms-tpo.zadn.vn/300x180/Uploaded/2022/bpivpvoi/2022_08_20/showbiz7-6961.jpg"
-                            alt="" class="img-fluid" />
-                        <a href="#!">
-                            <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);"></div>
-                        </a>
-                    </div>
-                </div>
-                <div class="">
-                    <i class="fas fa-lightbulb ps-1" style="color:#f64e4e;font-size: 12px "></i>
-                    <i class="ps-2 pe-1 fa-sm far fa-clock" style="font-size: 10px"></i>
-                    <span class=" date meta-item tie-icon " style="font-size: 12px">Oct 27, 2018</span>
-                    <a href="">
-                        <h5 class="ps-1" style="font-size: 14px">Showbiz 20/8: Sau khi công khai chuyện tình cảm, Doãn Hải
-                            My về quê Đoàn Văn Hậu ra mắt?</h5>
-                    </a>
-                </div>
-            </div>
-            <div class="col-6 col-sm-12 d-flex">
-                <div class="p-2">
-                    <div class="bg-image hover-overlay ripple shadow-1-strong rounded " data-mdb-ripple-color="light">
-                        <img src="https://photo-cms-tpo.zadn.vn/300x180/Uploaded/2022/bpivpvoi/2022_08_20/showbiz7-6961.jpg"
-                            alt="" class="img-fluid" />
-                        <a href="#!">
-                            <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);"></div>
-                        </a>
-                    </div>
-                </div>
-                <div class="">
-                    <i class="ps-1 pe-1 fa-sm far fa-clock" style="font-size: 10px"></i>
-                    <span class=" date meta-item tie-icon " style="font-size: 12px">Oct 27, 2018</span>
-                    <a href="">
-                        <h5 class="ps-1" style="font-size: 14px">Showbiz 20/8: Sau khi công khai chuyện tình cảm, Doãn Hải
-                            My về quê Đoàn Văn Hậu ra mắt?</h5>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
-    <div class="social-widget-wrapper col-xs-12 col-md-4">
-    <div class="widget-title">
-        Theo dõi chúng tôi
-    </div>
-      <div class="row g-2">
-          <div class="social-widget col-xs-12 col-md-6">
-            <a class="btn btn-primary w-100" style="background-color: #55acee;" href="#!" role="button"
-            ><i class="fab fa-twitter me-2"></i>Twitter</a
+          </div>
+          <div class="progress mx-2" style="height: 2px">
+            <div
+              class="progress-bar"
+              role="progressbar"
+              style="width: 25%"
+              aria-valuenow="25"
+              aria-valuemin="0"
+              aria-valuemax="100"
+            ></div>
+          </div>
+          <div class="p-2">
+            <a href="">
+              <div class="bg-image hover-zoom">
+                <img
+                  style="width: 100%; object-fit: cover"
+                  src="https://photo-cms-tpo.zadn.vn/300x180/Uploaded/2022/bpivpvoi/2022_08_20/showbiz7-6961.jpg"
+                  alt=""
+                  class="img-fluid"
+                />
+              </div>
+            </a>
+          </div>
+          <div class="p-2">
+            <i class="ps-1 pe-1 fa-sm far fa-clock"></i>
+            <span class="ps-1 date meta-item tie-icon">Oct 27, 2018</span>
+            <a href="">
+              <h5 class="ps-1">
+                Showbiz 20/8: Sau khi công khai chuyện tình cảm, Doãn Hải My về
+                quê Đoàn Văn Hậu ra mắt?
+              </h5>
+            </a>
+            <p class="fs-7 ps-1">
+              TPO - Hình ảnh Doãn Hải My chụp ảnh cùng Đoàn Văn Hậu ở một vùng
+              quê khiến nhiều khán giả dự đoán người đẹp về Thái Bình ra mắt nhà
+              bạn trai.
+            </p>
+            <a href=""
+              ><button type="button" class="btn btn-info">
+                Read more >>
+              </button></a
             >
           </div>
-          <div class="social-widget col-xs-12 col-md-6">
-            <a class="btn btn-primary w-100" style="background-color: #3b5998;" href="#!" role="button"
-            ><i class="fab fa-facebook-f me-2"></i
-            >Facebook</a>
+          <div class="col-6 col-sm-12 d-flex">
+            <div class="p-2">
+              <div
+                class="bg-image hover-overlay ripple shadow-1-strong rounded h-100"
+                data-mdb-ripple-color="light"
+              >
+                <img
+                  src="https://photo-cms-tpo.zadn.vn/300x180/Uploaded/2022/bpivpvoi/2022_08_20/showbiz7-6961.jpg"
+                  alt=""
+                  class="img-fluid"
+                />
+                <a href="#!">
+                  <div
+                    class="mask"
+                    style="background-color: rgba(251, 251, 251, 0.2)"
+                  ></div>
+                </a>
+              </div>
+            </div>
+            <div class="">
+              <i
+                class="fas fa-lightbulb ps-1"
+                style="color: #f64e4e; font-size: 12px"
+              ></i>
+              <i
+                class="ps-2 pe-1 fa-sm far fa-clock"
+                style="font-size: 10px"
+              ></i>
+              <span class="date meta-item tie-icon" style="font-size: 12px"
+                >Oct 27, 2018</span
+              >
+              <a href="">
+                <h5 class="ps-1" style="font-size: 14px">
+                  Showbiz 20/8: Sau khi công khai chuyện tình cảm, Doãn Hải My
+                  về quê Đoàn Văn Hậu ra mắt?
+                </h5>
+              </a>
+            </div>
           </div>
-          <!-- Twitter -->
-          <div class="social-widget col-xs-12 col-md-6">
-            <a class="btn btn-primary w-100" style="background-color: #55acee;" href="#!" role="button"
-            ><i class="fab fa-twitter me-2"></i
-            >Twitter</a>
+          <div class="col-6 col-sm-12 d-flex">
+            <div class="p-2">
+              <div
+                class="bg-image hover-overlay ripple shadow-1-strong rounded h-100"
+                data-mdb-ripple-color="light"
+              >
+                <img
+                  src="https://photo-cms-tpo.zadn.vn/300x180/Uploaded/2022/bpivpvoi/2022_08_20/showbiz7-6961.jpg"
+                  alt=""
+                  class="img-fluid"
+                />
+                <a href="#!">
+                  <div
+                    class="mask"
+                    style="background-color: rgba(251, 251, 251, 0.2)"
+                  ></div>
+                </a>
+              </div>
+            </div>
+            <div class="">
+              <i
+                class="ps-1 pe-1 fa-sm far fa-clock"
+                style="font-size: 10px"
+              ></i>
+              <span class="date meta-item tie-icon" style="font-size: 12px"
+                >Oct 27, 2018</span
+              >
+              <a href="">
+                <h5 class="ps-1" style="font-size: 14px">
+                  Showbiz 20/8: Sau khi công khai chuyện tình cảm, Doãn Hải My
+                  về quê Đoàn Văn Hậu ra mắt?
+                </h5>
+              </a>
+            </div>
           </div>
-          <!-- Google -->
-          <div class="social-widget col-xs-12 col-md-6">
-            <a class="btn btn-primary w-100" style="background-color: #dd4b39;" href="#!" role="button"
-            ><i class="fab fa-google me-2"></i
-            >Google</a>
-          </div>
-          <!-- Instagram -->
-          <div class="social-widget col-xs-12 col-md-6">
-            <a class="btn btn-primary w-100" style="background-color: #ac2bac;" href="#!" role="button"
-            ><i class="fab fa-instagram me-2"></i
-            >Instagram</a>
-          </div>
-          <!-- Linkedin -->
-          <div class="social-widget col-xs-12 col-md-6">
-            <a class="btn btn-primary w-100" style="background-color: #0082ca;" href="#!" role="button"
-            ><i class="fab fa-linkedin-in me-2"></i
-            >Linkedin</a>
-          </div>
-          <!-- Pinterest -->
-          <div class="social-widget col-xs-12 col-md-6">
-            <a class="btn btn-primary w-100" style="background-color: #c61118;" href="#!" role="button"
-            ><i class="fab fa-pinterest me-2"></i
-            >Pinterest</a>
-          </div>
-          <!-- Youtube -->
-          <div class="social-widget col-xs-12 col-md-6">
-            <a class="btn btn-primary w-100" style="background-color: #ed302f;" href="#!" role="button"
-            ><i class="fab fa-youtube me-2"></i
-            >Youtube</a>
-          </div>
-      </div>
+        </div>
 
+        <div class="col-xs-12 col-md-6">
+          <div class="d-flex justify-content-between">
+            <h5 class="p-2">LifeStyle</h5>
+            <div class="p-2">
+              <a href=""
+                ><i class="fas fa-angle-left pe-1 ps-1 me-1 border border-1"></i
+              ></a>
+              <a href=""
+                ><i class="fas fa-angle-right pe-1 ps-1 border border-1"></i
+              ></a>
+            </div>
+          </div>
+          <div class="progress mx-2" style="height: 2px">
+            <div
+              class="progress-bar"
+              role="progressbar"
+              style="width: 25%"
+              aria-valuenow="25"
+              aria-valuemin="0"
+              aria-valuemax="100"
+            ></div>
+          </div>
+          <div class="p-2">
+            <a href="">
+              <div class="bg-image hover-zoom">
+                <img
+                  src="https://photo-cms-tpo.zadn.vn/300x180/Uploaded/2022/bpivpvoi/2022_08_20/showbiz7-6961.jpg"
+                  alt=""
+                  class="img-fluid"
+                />
+              </div>
+            </a>
+          </div>
+          <div class="p-2">
+            <i class="ps-1 pe-1 fa-sm far fa-clock"></i>
+            <span class="ps-1 date meta-item tie-icon">Oct 27, 2018</span>
+            <a href="">
+              <h5 class="ps-1">
+                Showbiz 20/8: Sau khi công khai chuyện tình cảm, Doãn Hải My về
+                quê Đoàn Văn Hậu ra mắt?
+              </h5>
+            </a>
+            <p class="fs-7 ps-1">
+              TPO - Hình ảnh Doãn Hải My chụp ảnh cùng Đoàn Văn Hậu ở một vùng
+              quê khiến nhiều khán giả dự đoán người đẹp về Thái Bình ra mắt nhà
+              bạn trai.
+            </p>
+            <a href=""
+              ><button type="button" class="btn btn-warning">
+                Read more >>
+              </button></a
+            >
+          </div>
+          <div class="col-6 col-sm-12 d-flex">
+            <div class="p-2">
+              <div
+                class="bg-image hover-overlay ripple shadow-1-strong rounded h-100"
+                data-mdb-ripple-color="light"
+              >
+                <img
+                  src="https://photo-cms-tpo.zadn.vn/300x180/Uploaded/2022/bpivpvoi/2022_08_20/showbiz7-6961.jpg"
+                  alt=""
+                  class="img-fluid"
+                />
+                <a href="#!">
+                  <div
+                    class="mask"
+                    style="background-color: rgba(251, 251, 251, 0.2)"
+                  ></div>
+                </a>
+              </div>
+            </div>
+            <div class="">
+              <i
+                class="fas fa-lightbulb ps-1"
+                style="color: #f64e4e; font-size: 12px"
+              ></i>
+              <i
+                class="ps-2 pe-1 fa-sm far fa-clock"
+                style="font-size: 10px"
+              ></i>
+              <span class="date meta-item tie-icon" style="font-size: 12px"
+                >Oct 27, 2018</span
+              >
+              <a href="">
+                <h5 class="ps-1" style="font-size: 14px">
+                  Showbiz 20/8: Sau khi công khai chuyện tình cảm, Doãn Hải My
+                  về quê Đoàn Văn Hậu ra mắt?
+                </h5>
+              </a>
+            </div>
+          </div>
+          <div class="col-6 col-sm-12 d-flex">
+            <div class="p-2">
+              <div
+                class="bg-image hover-overlay ripple shadow-1-strong rounded h-100"
+                data-mdb-ripple-color="light"
+              >
+                <img
+                  src="https://photo-cms-tpo.zadn.vn/300x180/Uploaded/2022/bpivpvoi/2022_08_20/showbiz7-6961.jpg"
+                  alt=""
+                  class="img-fluid"
+                />
+                <a href="#!">
+                  <div
+                    class="mask"
+                    style="background-color: rgba(251, 251, 251, 0.2)"
+                  ></div>
+                </a>
+              </div>
+            </div>
+            <div class="">
+              <i
+                class="ps-1 pe-1 fa-sm far fa-clock"
+                style="font-size: 10px"
+              ></i>
+              <span class="date meta-item tie-icon" style="font-size: 12px"
+                >Oct 27, 2018</span
+              >
+              <a href="">
+                <h5 class="ps-1" style="font-size: 14px">
+                  Showbiz 20/8: Sau khi công khai chuyện tình cảm, Doãn Hải My
+                  về quê Đoàn Văn Hậu ra mắt?
+                </h5>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="social-widget-wrapper col-xs-12 col-md-4">
+      <div class="widget-title">Theo dõi chúng tôi</div>
+      <div class="row g-2">
+        <div class="social-widget col-xs-12 col-md-6">
+          <a
+            class="btn btn-primary w-100"
+            style="background-color: #55acee"
+            href="#!"
+            role="button"
+            ><i class="fab fa-twitter me-2"></i>Twitter</a
+          >
+        </div>
+        <div class="social-widget col-xs-12 col-md-6">
+          <a
+            class="btn btn-primary w-100"
+            style="background-color: #3b5998"
+            href="#!"
+            role="button"
+            ><i class="fab fa-facebook-f me-2"></i>Facebook</a
+          >
+        </div>
+        <!-- Twitter -->
+        <div class="social-widget col-xs-12 col-md-6">
+          <a
+            class="btn btn-primary w-100"
+            style="background-color: #55acee"
+            href="#!"
+            role="button"
+            ><i class="fab fa-twitter me-2"></i>Twitter</a
+          >
+        </div>
+        <!-- Google -->
+        <div class="social-widget col-xs-12 col-md-6">
+          <a
+            class="btn btn-primary w-100"
+            style="background-color: #dd4b39"
+            href="#!"
+            role="button"
+            ><i class="fab fa-google me-2"></i>Google</a
+          >
+        </div>
+        <!-- Instagram -->
+        <div class="social-widget col-xs-12 col-md-6">
+          <a
+            class="btn btn-primary w-100"
+            style="background-color: #ac2bac"
+            href="#!"
+            role="button"
+            ><i class="fab fa-instagram me-2"></i>Instagram</a
+          >
+        </div>
+        <!-- Linkedin -->
+        <div class="social-widget col-xs-12 col-md-6">
+          <a
+            class="btn btn-primary w-100"
+            style="background-color: #0082ca"
+            href="#!"
+            role="button"
+            ><i class="fab fa-linkedin-in me-2"></i>Linkedin</a
+          >
+        </div>
+        <!-- Pinterest -->
+        <div class="social-widget col-xs-12 col-md-6">
+          <a
+            class="btn btn-primary w-100"
+            style="background-color: #c61118"
+            href="#!"
+            role="button"
+            ><i class="fab fa-pinterest me-2"></i>Pinterest</a
+          >
+        </div>
+        <!-- Youtube -->
+        <div class="social-widget col-xs-12 col-md-6">
+          <a
+            class="btn btn-primary w-100"
+            style="background-color: #ed302f"
+            href="#!"
+            role="button"
+            ><i class="fab fa-youtube me-2"></i>Youtube</a
+          >
+        </div>
+      </div>
     </div>
   </div>
 </section>
