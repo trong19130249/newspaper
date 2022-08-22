@@ -1,0 +1,61 @@
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.carousel-item .carousel-caption {
+  text-align: left;
+  right: 5%;
+}
+
+#carousel .carousel-caption {
+  max-width: 70%;
+}
+#carousel .carousel-item {
+  max-height: 480px;
+}
+#carousel .carousel-date {
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+#carousel .carousel-date i {
+  margin-right: 6px;
+  font-size: 16px;
+  color: #F64E4E;
+}
+#carousel:hover .carousel-desc {
+  max-height: 100px;
+  opacity: 1;
+  transition: opacity 0.4s ease-out, max-height 0.9s ease-out;
+}
+#carousel .carousel-desc {
+  max-height: 0;
+  line-height: 18px;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.4s ease-out, max-height 0.4s ease-out, margin 0.4s;
+}
+
+.post-items {
+  display: grid;
+  column-gap: 1rem;
+  row-gap: 1rem;
+}
+.post-items li:first-child {
+  height: 325px;
+}
+
+@media (min-width: 992px) {
+  .post-items {
+    grid-template-rows: repeat(5, 1fr);
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  .post-items li:first-child {
+    grid-row: 1/6;
+    height: auto;
+  }
+}
+
+/*# sourceMappingURL=home.component.css.map */
