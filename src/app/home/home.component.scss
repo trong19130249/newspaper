@@ -107,3 +107,37 @@ ul {
 .fs-7 {
   font-size: 13px;
 }
+
+
+.one-image {
+  @media (min-width: 992px) {
+    &:hover {
+      .image-desc {
+        display: block;
+        max-height: 100px;
+        opacity: 1;
+        transition: opacity 0.4s ease-out, max-height 0.4s ease-out;
+      }
+    }
+    .image-desc {
+      opacity: 0;
+      max-height: 0;
+      transition: opacity 0.4s ease-out, max-height 0.4s ease-out, margin 0.4s;
+    }
+  }
+  @media (max-width: 992px) {
+    .image-desc {
+      display: none;
+    }
+    .date-image {
+      font-size: 10px;
+    }
+    .image-title {
+      font-size: 14px;
+    }
+  }
+  .container-link {
+    z-index: 2;
+  }
+}
+
