@@ -53,6 +53,7 @@ export class HomeComponent implements OnInit {
       let dataArr = await this.feedService.getData(element.link);
       this.arrData.push({
         heading: element.title,
+        id: element.id,
         data: dataArr?.rss?.channel[0]?.item,
       });
     }

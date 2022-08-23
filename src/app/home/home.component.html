@@ -51,7 +51,8 @@
             <ng-template mdbTabContent>
               <div class="box-container">
                 <ul class="post-items">
-                  <li class="post-item"
+                  <li
+                    class="post-item"
                     *ngFor="
                       let d of item.data.slice(0, 6);
                       index as i;
@@ -61,7 +62,9 @@
                     <div
                       *ngIf="isFirst"
                       class="bg-image position-relative"
-                      style="background-image: url('{{ d.image }}');height: 100%;"
+                      style="background-image: url('{{
+                        d.image
+                      }}');height: 100%;"
                     >
                       <a href="#!">
                         <div
@@ -156,7 +159,7 @@
             <p class="fs-7 ps-1">
               {{ arrData[0].data[0].description | parseHtml | async }}
             </p>
-            <a href=""
+            <a routerLink="/category/{{ arrData[0].id }}"
               ><button type="button" class="btn btn-info">
                 Read more >>
               </button></a
