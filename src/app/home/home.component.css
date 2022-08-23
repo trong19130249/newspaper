@@ -57,5 +57,32 @@ ul {
     height: auto;
   }
 }
+@media (min-width: 992px) {
+  .one-image:hover .image-desc {
+    display: block;
+    max-height: 100px;
+    opacity: 1;
+    transition: opacity 0.4s ease-out, max-height 0.4s ease-out;
+  }
+  .one-image .image-desc {
+    opacity: 0;
+    max-height: 0;
+    transition: opacity 0.4s ease-out, max-height 0.4s ease-out, margin 0.4s;
+  }
+}
+@media (max-width: 992px) {
+  .one-image .image-desc {
+    display: none;
+  }
+  .one-image .date-image {
+    font-size: 10px;
+  }
+  .one-image .image-title {
+    font-size: 14px;
+  }
+}
+.one-image .container-link {
+  z-index: 2;
+}
 
 /*# sourceMappingURL=home.component.css.map */

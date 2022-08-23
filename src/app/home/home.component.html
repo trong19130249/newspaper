@@ -1,6 +1,6 @@
 <section class="carousel-area container py-4" id="carousel">
-  <mdb-carousel *ngIf="listItems.length!==0" [controls]="true" [indicators]="true" >
-    <mdb-carousel-item *ngFor="let item of listItems | slice:0:10; let i=index" class="carousel-item" >
+  <mdb-carousel *ngIf="listItems.length!==0" [controls]="true" [indicators]="true">
+    <mdb-carousel-item *ngFor="let item of listItems | slice:0:10; let i=index" class="carousel-item">
       <img
         src="{{item.image}}"
         class="d-block w-100"
@@ -27,7 +27,7 @@
   </mdb-carousel>
 </section>
 <section class="main container">
-  <div class="wrapper row  py-4" >
+  <div class="wrapper row py-4">
     <div class="col-xs-12 col-md-8">
       <mdb-tabs class="my-4">
         <mdb-tab>
@@ -356,21 +356,6 @@
                     </div>
                   </div>
                 </li>
-<!--                <li class="post-item py-2">-->
-<!--                  <div class="d-flex">-->
-<!--                    <img-->
-<!--                      src="https://mdbootstrap.com/img/new/standard/city/041.webp"-->
-<!--                      class="flex-shrink-0 me-3"-->
-<!--                      style="max-width: 6.875rem"-->
-<!--                      alt="..."-->
-<!--                    />-->
-<!--                    <div>-->
-<!--                      <span class="post-date">2022-08-14 16:05:47</span>-->
-<!--                      <h5 class="mt-0 small"> Ai chi trả cho những bữa tiệc của CLB Giám đốc CDC miền Bắc? </h5>-->
-<!--                      <a href="#" class="stretched-link"></a>-->
-<!--                    </div>-->
-<!--                  </div>-->
-<!--                </li>-->
               </ul>
             </div>
           </mdb-tab>
@@ -421,8 +406,9 @@
         <p class="fa-sm py-4">Lorem ipsum dolor sit amet, consectetur.</p>
         <div class="d-flex align-items-center input-group mb-3 border py-1 w-100">
           <i class="fas fa-envelope px-2 text-muted"></i>
-          <input type="text" class="border-0 text-center text-muted flex-grow-1" style="outline: none" aria-label="Example text with button addon"
-                 aria-describedby="button-addon1" placeholder="Enter your Email address" />
+          <input type="text" class="border-0 text-center text-muted flex-grow-1" style="outline: none"
+                 aria-label="Example text with button addon"
+                 aria-describedby="button-addon1" placeholder="Enter your Email address"/>
         </div>
         <div class="d-grid gap-2 w-100">
           <button class="btn btn-primary" type="button">Subcribe</button>
@@ -462,6 +448,48 @@
             <span class="badge bg-primary">7</span>
           </li>
         </ul>
+      </div>
+    </div>
+  </div>
+  <div class="wrapper row py-4" style="background-color: #eeeeee;">
+    <div class="container-image d-flex justify-content-between px-0" id="image-hover">
+      <div class="d-inline-block h-auto bg-image one-image"
+           style="width: 49%;">
+        <img
+          src="https://photo-cms-tpo.zadn.vn/600x315/Uploaded/2022/ofh-otmgxuzt/2022_08_22/tp-pccc-8018.jpg"
+          class="img-fluid d-block w-100 image-tag"
+          alt="..."
+        />
+        <a href="#" class="container-link position-absolute top-0 w-100 h-100"></a>
+        <div class="mask" style="background:linear-gradient(to bottom, transparent, rgba(0,0,0,0.75));">
+          <div class="d-flex flex-column justify-content-end h-100 w-100 p-4">
+            <div class="date-image text-white">
+              <i class="fab fa-hotjar text-danger"></i>
+              <span> 2022-08-22 19:54:15 </span>
+            </div>
+            <h5 class="image-title text-white mb-0"> Chuyện nghề những người lính 'ngược chiều' với nạn nhân </h5>
+            <div class="image-desc text-white small"> TPO - Công việc của lính cứu hỏa gian khổ, hiểm nguy nhưng họ luôn giữ ngọn lửa nhiệt huyết, sẵn sàng 'ngược chiều' với nạn nhân, đương đầu 'bà hỏa' để giành giật sự sống, tài sản cho người dân. </div>
+          </div>
+        </div>
+      </div>
+      <div class="d-inline-block h-auto bg-image one-image"
+           style="width: 49%;">
+        <img
+          src="https://photo-cms-tpo.zadn.vn/350x210/Uploaded/2022/bpivpvoi/2022_08_22/showbiz7-2363.jpg"
+          class="img-fluid d-block w-100 image-tag"
+          alt="..."
+        />
+        <a href="#" class="container-link position-absolute top-0 w-100 h-100"></a>
+        <div class="mask" style="background:linear-gradient(to bottom, transparent, rgba(0,0,0,0.75));">
+          <div class="d-flex flex-column justify-content-end h-100 w-100 p-4">
+            <div class="date-image text-white">
+              <i class="fab fa-hotjar text-danger"></i>
+              <span> 2022-08-22 19:54:15 </span>
+            </div>
+            <h5 class="image-title text-white mb-0"> Showbiz 22/8: Xử phạt 70 triệu đồng vụ siêu mẫu Hà Anh mặc phản cảm </h5>
+            <div class="image-desc text-white small"> TPO - Trong đêm chung kết Hoa hậu Hoàn vũ Việt Nam 2022, Hà Anh diện thiết kế xuyên thấu đính sequin, để lộ miếng dán ngực. Nhiều người nhận xét cô phối đồ gây phản cảm bởi thiết kế bên ngoài có dáng giống áo dài. </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

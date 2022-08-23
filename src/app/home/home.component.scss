@@ -1,43 +1,48 @@
-$color-red:#F64E4E;
-ul
-{
+$color-red: #F64E4E;
+ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-.carousel-item{
 
-  .carousel-caption{
+.carousel-item {
+
+  .carousel-caption {
     text-align: left;
-    right:5%;
+    right: 5%;
   }
 }
 
-#carousel{
+#carousel {
 
-  .carousel-caption{
+  .carousel-caption {
     max-width: 70%;
   }
-  .carousel-item{
+
+  .carousel-item {
     max-height: 480px;
   }
-  .carousel-date{
+
+  .carousel-date {
     font-size: 13px;
     margin-bottom: 6px;
-    i{
-      margin-right:6px;
+
+    i {
+      margin-right: 6px;
       font-size: 16px;
-      color:$color-red;
+      color: $color-red;
     }
   }
-  &:hover{
-    .carousel-desc{
+
+  &:hover {
+    .carousel-desc {
       max-height: 100px;
       opacity: 1;
       transition: opacity 0.4s ease-out, max-height 0.9s ease-out;
     }
   }
-  .carousel-desc{
+
+  .carousel-desc {
     max-height: 0;
     line-height: 18px;
     overflow: hidden;
@@ -45,23 +50,61 @@ ul
     transition: opacity 0.4s ease-out, max-height 0.4s ease-out, margin 0.4s;
   }
 }
-.post-items {
-        display: grid;
-        column-gap: 1rem;
-        row-gap:1rem;
-        li:first-child {
-            height: 325px;
-        }
-}
-@media (min-width: 992px) {
-    .post-items {
-            grid-template-rows: repeat(5, 1fr);
-            grid-template-columns: 1fr 1fr;
-            li:first-child {
-                grid-row: 1/6;
-                height: auto;
-            }
-            gap: 1.5rem;
 
-        }
+.post-items {
+  display: grid;
+  column-gap: 1rem;
+  row-gap: 1rem;
+
+  li:first-child {
+    height: 325px;
+  }
 }
+
+@media (min-width: 992px) {
+  .post-items {
+    grid-template-rows: repeat(5, 1fr);
+    grid-template-columns: 1fr 1fr;
+
+    li:first-child {
+      grid-row: 1/6;
+      height: auto;
+    }
+
+    gap: 1.5rem;
+
+  }
+}
+
+.one-image {
+  @media (min-width: 992px) {
+    &:hover {
+      .image-desc {
+        display: block;
+        max-height: 100px;
+        opacity: 1;
+        transition: opacity 0.4s ease-out, max-height 0.4s ease-out;
+      }
+    }
+    .image-desc {
+      opacity: 0;
+      max-height: 0;
+      transition: opacity 0.4s ease-out, max-height 0.4s ease-out, margin 0.4s;
+    }
+  }
+  @media (max-width: 992px) {
+    .image-desc {
+      display: none;
+    }
+    .date-image {
+      font-size: 10px;
+    }
+    .image-title {
+      font-size: 14px;
+    }
+  }
+  .container-link {
+    z-index: 2;
+  }
+}
+
