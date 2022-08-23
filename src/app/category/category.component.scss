@@ -1,39 +1,10 @@
-input{
-  background-color: #0d6efd;
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
-.date{
-  font-size: 14px;
-}
-@media only screen and (max-width:1040px) {
-  .reponcss{
-    flex-direction: column;
+@media (max-width: 576px) {
+  .item-category img {
+    max-width: 100% !important;
   }
-  .w-140{
-    width: 400px;
-  }
-  .w{
-    width: 100px
-  }
-  .col-6{
-    width: 100%;
-  }
-
-}
-.img-fluid{
-  width: 373px;
-}
-.fs-7{
-  font-size: 13px;
-}
-.hva{
-  color: black;
-}
-.hva:hover{
-  background-color: #0ab3af;
-}
-.textHV{
-  color: black;
-}
-.textHV:hover{
-  color: #0ab3af;
 }

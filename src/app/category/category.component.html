@@ -1,398 +1,73 @@
-
 <section class="main container">
-  <div class="wrapper row" >
-    <div class="col-xs-12  col-md-8 ">
-      <div class="d-flex reponcss pb-0">
-        <div class=".col-6 .col-md-4 p-2">
-          <a href="">
-            <div class="bg-image hover-zoom">
-              <img src="https://photo-cms-tpo.zadn.vn/300x180/Uploaded/2022/bpivpvoi/2022_08_20/showbiz7-6961.jpg" alt="" class="w-140"/>
+  <div class="wrapper row">
+    <div class="col-xs-12 col-md-8">
+      <section id="category" class="py-4">
+        <div>
+          <h2>{{ title }}</h2>
+        </div>
+        <ul *ngIf="arrItem !== undefined">
+          <li
+            class="my-2"
+            *ngFor="
+              let item of arrItem.slice(0, 8);
+              index as i;
+              first as isFirst
+            "
+          >
+            <div
+              class="item-category d-flex position-relative flex-column flex-sm-row"
+            >
+              <img
+                src="{{ item.image }}"
+                class="flex-shrink-0 me-3 bg-image hover-zoom"
+                style="
+                  max-width: 15.875rem;
+                  object-fit: cover;
+                  object-position: center;
+                "
+                alt="..."
+              />
+              <div>
+                <span class="post-date small">{{ item.updated }}</span>
+                <h5 class="mt-0">{{ item.title }}</h5>
+                <p class="small">
+                  {{ item.description | parseHtml | async }}
+                </p>
+                <a href="#" class="stretched-link"></a>
+              </div>
             </div>
-
-          </a>
-        </div>
-        <div class=".col-6 .col-md-4 p-2">
-          <i class=" pe-1 fa-sm far fa-clock"></i>
-          <span class="date meta-item tie-icon">Oct 27, 2018</span>
-          <a href=""> <h5>Showbiz 20/8: Sau khi công khai chuyện tình cảm, Doãn Hải My về quê Đoàn Văn Hậu ra mắt?</h5></a>
-          <p class="fs-7 ">TPO - Hình ảnh Doãn Hải My chụp ảnh cùng Đoàn Văn Hậu ở một vùng quê khiến nhiều khán giả dự đoán người đẹp về Thái Bình ra mắt nhà bạn trai.</p>
-        </div>
-      </div>
-      <div class="d-flex reponcss pb-0">
-        <div class=".col-6 .col-md-4 p-2">
-          <a href="">
-            <div class="bg-image hover-zoom">
-              <img src="https://photo-cms-tpo.zadn.vn/300x180/Uploaded/2022/bpivpvoi/2022_08_20/showbiz7-6961.jpg" alt="" class="w-140"/>
-            </div>
-
-          </a>
-        </div>
-        <div class=".col-6 .col-md-4 p-2">
-          <i class=" pe-1 fa-sm far fa-clock"></i>
-          <span class="date meta-item tie-icon">Oct 27, 2018</span>
-          <a href=""> <h5>Showbiz 20/8: Sau khi công khai chuyện tình cảm, Doãn Hải My về quê Đoàn Văn Hậu ra mắt?</h5></a>
-          <p class="fs-7 ">TPO - Hình ảnh Doãn Hải My chụp ảnh cùng Đoàn Văn Hậu ở một vùng quê khiến nhiều khán giả dự đoán người đẹp về Thái Bình ra mắt nhà bạn trai.</p>
-        </div>
-      </div>
-      <div class="d-flex  reponcss pb-0">
-        <div class=".col-6 .col-md-4 p-2">
-          <a href="">
-            <div class="bg-image hover-zoom">
-              <img src="https://photo-cms-tpo.zadn.vn/300x180/Uploaded/2022/bpivpvoi/2022_08_20/showbiz7-6961.jpg" alt="" class="w-140"/>
-            </div>
-          </a>
-        </div>
-        <div class=".col-6 .col-md-4 p-2">
-          <i class=" pe-1 fa-sm far fa-clock"></i>
-          <span class="date meta-item tie-icon">Oct 27, 2018</span>
-          <a href=""> <h5>Showbiz 20/8: Sau khi công khai chuyện tình cảm, Doãn Hải My về quê Đoàn Văn Hậu ra mắt?</h5></a>
-          <p class="fs-7 ">TPO - Hình ảnh Doãn Hải My chụp ảnh cùng Đoàn Văn Hậu ở một vùng quê khiến nhiều khán giả dự đoán người đẹp về Thái Bình ra mắt nhà bạn trai.</p>
-        </div>
-      </div>
-    </div>
-
-<!--    What's new-->
-    <div class="Whatnew">
-      <h5> What's new</h5>
-      <div class="row">
-        <div class="col-6 col-sm-4">
-          <div class=" p-2">
+          </li>
+        </ul>
+        <!-- <div class="d-flzex reponcss pb-0">
+          <div class="col-6 col-md-4 p-2">
             <a href="">
               <div class="bg-image hover-zoom">
-                <img src="https://photo-cms-tpo.zadn.vn/300x180/Uploaded/2022/bpivpvoi/2022_08_20/showbiz7-6961.jpg" alt="" class="img-fluid"/>
+                <img
+                  src="https://photo-cms-tpo.zadn.vn/300x180/Uploaded/2022/bpivpvoi/2022_08_20/showbiz7-6961.jpg"
+                  alt=""
+                  class="w-140"
+                />
               </div>
             </a>
           </div>
-          <div class=" p-2">
-            <i class="ps-1 pe-1 fa-sm far fa-clock"></i>
-            <span class="ps-1 date meta-item tie-icon">Oct 27, 2018</span>
-            <a href=""> <h5 class="ps-1">Showbiz 20/8: Sau khi công khai chuyện tình cảm, Doãn Hải My về quê Đoàn Văn Hậu ra mắt?</h5></a>
-            <p class="fs-7 ps-1 ">TPO - Hình ảnh Doãn Hải My chụp ảnh cùng Đoàn Văn Hậu ở một vùng quê khiến nhiều khán giả dự đoán người đẹp về Thái Bình ra mắt nhà bạn trai.</p>
-          </div>
-        </div>
-        <div class="col-6 col-sm-4">
-          <div class=" p-2">
+          <div class=".col-6 .col-md-4 p-2">
+            <i class="pe-1 fa-sm far fa-clock"></i>
+            <span class="date meta-item tie-icon">Oct 27, 2018</span>
             <a href="">
-              <div class="bg-image hover-zoom">
-                <img src="https://photo-cms-tpo.zadn.vn/300x180/Uploaded/2022/bpivpvoi/2022_08_20/showbiz7-6961.jpg" alt="" class="img-fluid"/>
-              </div>
-            </a>
+              <h5>
+                Showbiz 20/8: Sau khi công khai chuyện tình cảm, Doãn Hải My về
+                quê Đoàn Văn Hậu ra mắt?
+              </h5></a
+            >
+            <p class="fs-7">
+              TPO - Hình ảnh Doãn Hải My chụp ảnh cùng Đoàn Văn Hậu ở một vùng
+              quê khiến nhiều khán giả dự đoán người đẹp về Thái Bình ra mắt nhà
+              bạn trai.
+            </p>
           </div>
-          <div class=" p-2">
-            <i class="ps-1 pe-1 fa-sm far fa-clock"></i>
-            <span class="ps-1 date meta-item tie-icon">Oct 27, 2018</span>
-            <a href=""> <h5 class="ps-1">Showbiz 20/8: Sau khi công khai chuyện tình cảm, Doãn Hải My về quê Đoàn Văn Hậu ra mắt?</h5></a>
-            <p class="fs-7 ps-1 ">TPO - Hình ảnh Doãn Hải My chụp ảnh cùng Đoàn Văn Hậu ở một vùng quê khiến nhiều khán giả dự đoán người đẹp về Thái Bình ra mắt nhà bạn trai.</p>
-          </div>
-        </div>
-
-        <!-- Force next columns to break to new line at md breakpoint and up -->
-        <div class="w-100 d-none d-md-block"></div>
-
-        <div class="col-6 col-sm-4">
-          <div class=" p-2">
-            <a href="">
-              <div class="bg-image hover-zoom">
-                <img src="https://photo-cms-tpo.zadn.vn/300x180/Uploaded/2022/bpivpvoi/2022_08_20/showbiz7-6961.jpg" alt="" class="img-fluid"/>
-              </div>
-            </a>
-          </div>
-          <div class=" p-2">
-            <i class=" ps-1 pe-1 fa-sm far fa-clock"></i>
-            <span class="ps-1 date meta-item tie-icon">Oct 27, 2018</span>
-            <a href=""> <h5 class="ps-1">Showbiz 20/8: Sau khi công khai chuyện tình cảm, Doãn Hải My về quê Đoàn Văn Hậu ra mắt?</h5></a>
-            <p class="fs-7 ps-1">TPO - Hình ảnh Doãn Hải My chụp ảnh cùng Đoàn Văn Hậu ở một vùng quê khiến nhiều khán giả dự đoán người đẹp về Thái Bình ra mắt nhà bạn trai.</p>
-          </div>
-        </div>
-        <div class="col-6 col-sm-4">
-          <div class=" p-2">
-            <a href="">
-              <div class="bg-image hover-zoom">
-                <img src="https://photo-cms-tpo.zadn.vn/300x180/Uploaded/2022/bpivpvoi/2022_08_20/showbiz7-6961.jpg" alt="" class="img-fluid"/>
-              </div>
-            </a>
-          </div>
-          <div class=" p-2">
-            <i class="ps-1 pe-1 fa-sm far fa-clock"></i>
-            <span class=" ps-1 date meta-item tie-icon">Oct 27, 2018</span>
-            <a href=""> <h5 class="ps-1">Showbiz 20/8: Sau khi công khai chuyện tình cảm, Doãn Hải My về quê Đoàn Văn Hậu ra mắt?</h5></a>
-            <p class="fs-7 ps-1 ">TPO - Hình ảnh Doãn Hải My chụp ảnh cùng Đoàn Văn Hậu ở một vùng quê khiến nhiều khán giả dự đoán người đẹp về Thái Bình ra mắt nhà bạn trai.</p>
-          </div>
-        </div>
-      </div>
+        </div> -->
+      </section>
     </div>
-    <!--Racing and lifeStyle-->
-    <div class="row">
-      <div class="col-6 col-sm-4">
-        <div class="d-flex justify-content-between" >
-          <h5 class="p-2">Racing</h5>
-          <div class="p-2">
-            <a href=""><i class="fas fa-angle-left pe-1 ps-1 me-1 border border-1 "></i></a>
-            <a href=""><i class="fas fa-angle-right pe-1 ps-1 border border-1" ></i></a>
-          </div>
-        </div>
-        <div class="progress mx-2" style="height: 2px">
-          <div
-            class="progress-bar "
-            role="progressbar"
-            style="width: 25%"
-            aria-valuenow="25"
-            aria-valuemin="0"
-            aria-valuemax="100"
-          ></div>
-        </div>
-        <div class=" p-2">
-          <a href="">
-            <div class="bg-image hover-zoom">
-              <img src="https://photo-cms-tpo.zadn.vn/300x180/Uploaded/2022/bpivpvoi/2022_08_20/showbiz7-6961.jpg" alt="" class="img-fluid"/>
-            </div>
-          </a>
-        </div>
-        <div class=" p-2">
-          <i class="ps-1 pe-1 fa-sm far fa-clock"></i>
-          <span class="ps-1 date meta-item tie-icon">Oct 27, 2018</span>
-          <a href=""> <h5 class="ps-1">Showbiz 20/8: Sau khi công khai chuyện tình cảm, Doãn Hải My về quê Đoàn Văn Hậu ra mắt?</h5></a>
-          <p class="fs-7 ps-1 ">TPO - Hình ảnh Doãn Hải My chụp ảnh cùng Đoàn Văn Hậu ở một vùng quê khiến nhiều khán giả dự đoán người đẹp về Thái Bình ra mắt nhà bạn trai.</p>
-          <a href=""><button type="button" class="btn btn-info">Read more >></button></a>
-        </div>
-        <div class="col-6 col-sm-12 d-flex ">
-          <div class="p-2">
-            <div
-              class="bg-image hover-overlay ripple shadow-1-strong rounded "
-              data-mdb-ripple-color="light">
-              <img src="https://photo-cms-tpo.zadn.vn/300x180/Uploaded/2022/bpivpvoi/2022_08_20/showbiz7-6961.jpg" alt="" class="img-fluid"/>
-              <a href="#!">
-                <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);"></div>
-              </a>
-            </div>
-          </div>
-          <div class="">
-            <i class="fas fa-lightbulb ps-1" style="color:#f64e4e;font-size: 12px "></i>
-            <i class="ps-2 pe-1 fa-sm far fa-clock" style="font-size: 10px"></i>
-            <span class=" date meta-item tie-icon " style="font-size: 12px">Oct 27, 2018</span>
-            <a href=""> <h5 class="ps-1" style="font-size: 14px">Showbiz 20/8: Sau khi công khai chuyện tình cảm, Doãn Hải My về quê Đoàn Văn Hậu ra mắt?</h5></a>
-          </div>
-        </div>
-        <div class="col-6 col-sm-12 d-flex">
-          <div class="p-2">
-            <div
-              class="bg-image hover-overlay ripple shadow-1-strong rounded "
-              data-mdb-ripple-color="light">
-              <img src="https://photo-cms-tpo.zadn.vn/300x180/Uploaded/2022/bpivpvoi/2022_08_20/showbiz7-6961.jpg" alt="" class="img-fluid"/>
-              <a href="#!">
-                <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);"></div>
-              </a>
-            </div>
-          </div>
-          <div class="">
-            <i class="ps-1 pe-1 fa-sm far fa-clock" style="font-size: 10px"></i>
-            <span class=" date meta-item tie-icon " style="font-size: 12px">Oct 27, 2018</span>
-            <a href=""> <h5 class="ps-1" style="font-size: 14px">Showbiz 20/8: Sau khi công khai chuyện tình cảm, Doãn Hải My về quê Đoàn Văn Hậu ra mắt?</h5></a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-6 col-sm-4">
-        <div class="d-flex justify-content-between" >
-          <h5 class="p-2">LifeStyle</h5>
-          <div class="p-2">
-            <a href=""><i class="fas fa-angle-left pe-1 ps-1 me-1 border border-1 "></i></a>
-            <a href=""><i class="fas fa-angle-right pe-1 ps-1 border border-1" ></i></a>
-          </div>
-        </div>
-        <div class="progress mx-2" style="height: 2px">
-          <div
-            class="progress-bar "
-            role="progressbar"
-            style="width: 25%"
-            aria-valuenow="25"
-            aria-valuemin="0"
-            aria-valuemax="100"
-          ></div>
-        </div>
-        <div class=" p-2">
-          <a href="">
-            <div class="bg-image hover-zoom">
-              <img src="https://photo-cms-tpo.zadn.vn/300x180/Uploaded/2022/bpivpvoi/2022_08_20/showbiz7-6961.jpg" alt="" class="img-fluid"/>
-            </div>
-          </a>
-        </div>
-        <div class=" p-2">
-          <i class="ps-1 pe-1 fa-sm far fa-clock"></i>
-          <span class="ps-1 date meta-item tie-icon">Oct 27, 2018</span>
-          <a href=""> <h5 class="ps-1">Showbiz 20/8: Sau khi công khai chuyện tình cảm, Doãn Hải My về quê Đoàn Văn Hậu ra mắt?</h5></a>
-          <p class="fs-7 ps-1 ">TPO - Hình ảnh Doãn Hải My chụp ảnh cùng Đoàn Văn Hậu ở một vùng quê khiến nhiều khán giả dự đoán người đẹp về Thái Bình ra mắt nhà bạn trai.</p>
-          <a href=""><button type="button" class="btn btn-warning">Read more >></button></a>
-        </div>
-        <div class="col-6 col-sm-12 d-flex">
-          <div class="p-2">
-            <div
-              class="bg-image hover-overlay ripple shadow-1-strong rounded "
-              data-mdb-ripple-color="light">
-              <img src="https://photo-cms-tpo.zadn.vn/300x180/Uploaded/2022/bpivpvoi/2022_08_20/showbiz7-6961.jpg" alt="" class="img-fluid"/>
-              <a href="#!">
-                <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);"></div>
-              </a>
-            </div>
-          </div>
-          <div class="">
-            <i class="fas fa-lightbulb ps-1" style="color:#f64e4e;font-size: 12px "></i>
-            <i class="ps-2 pe-1 fa-sm far fa-clock" style="font-size: 10px"></i>
-            <span class=" date meta-item tie-icon " style="font-size: 12px">Oct 27, 2018</span>
-            <a href=""> <h5 class="ps-1" style="font-size: 14px">Showbiz 20/8: Sau khi công khai chuyện tình cảm, Doãn Hải My về quê Đoàn Văn Hậu ra mắt?</h5></a>
-          </div>
-        </div>
-        <div class="col-6 col-sm-12 d-flex">
-          <div class="p-2">
-            <div
-              class="bg-image hover-overlay ripple shadow-1-strong rounded "
-              data-mdb-ripple-color="light">
-              <img src="https://photo-cms-tpo.zadn.vn/300x180/Uploaded/2022/bpivpvoi/2022_08_20/showbiz7-6961.jpg" alt="" class="img-fluid"/>
-              <a href="#!">
-                <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);"></div>
-              </a>
-            </div>
-          </div>
-          <div class="">
-            <i class="ps-1 pe-1 fa-sm far fa-clock" style="font-size: 10px"></i>
-            <span class=" date meta-item tie-icon " style="font-size: 12px">Oct 27, 2018</span>
-            <a href=""> <h5 class="ps-1" style="font-size: 14px">Showbiz 20/8: Sau khi công khai chuyện tình cảm, Doãn Hải My về quê Đoàn Văn Hậu ra mắt?</h5></a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!--technology-->
-    <div class="row">
-      <div class="col-sm-8 pt-3 pb-3" style="background-color: #e4f7f6">
-        <div class="d-flex justify-content-between" >
-          <h5 class="p-2" style="color: #0ab3af">Racing</h5>
-          <div class=" fs-7 pt-3">
-            <a class="p-1 m-1 hva drak" href="">All</a>
-            <a class="p-1 m-1 hva" href="">Creative</a>
-            <a class="p-1 m-1 hva" href="">Technology</a>
-            <a class="p-1 m-1 hva" href="">World</a>
-          </div>
-        </div>
-
-        <div class="progress mx-2" style="height: 2px">
-          <div
-            class="progress-bar "
-            role="progressbar"
-            style="width: 25%"
-            aria-valuenow="25"
-            aria-valuemin="0"
-            aria-valuemax="100"
-          ></div>
-        </div>
-        <div class=" d-flex reponcss ">
-          <div class="col-6 col-sm-6">
-            <div class=" p-2">
-              <a href="">
-                <div class="bg-image hover-zoom">
-                  <img src="https://photo-cms-tpo.zadn.vn/300x180/Uploaded/2022/bpivpvoi/2022_08_20/showbiz7-6961.jpg" alt="" class="img-fluid"/>
-                </div>
-              </a>
-            </div>
-            <div class=" p-2">
-              <i class="ps-1 pe-1 fa-sm far fa-clock"></i>
-              <span class="ps-1 date meta-item tie-icon">Oct 27, 2018</span>
-              <a href=""> <h5 class="ps-1">Showbiz 20/8: Sau khi công khai chuyện tình cảm, Doãn Hải My về quê Đoàn Văn Hậu ra mắt?</h5></a>
-              <p class="fs-7 ps-1 ">TPO - Hình ảnh Doãn Hải My chụp ảnh cùng Đoàn Văn Hậu ở một vùng quê khiến nhiều khán giả dự đoán người đẹp về Thái Bình ra mắt nhà bạn trai.</p>
-              <a href=""><button type="button" class="btn btn-outline-light" style="background-color: #0ab3af">Read more >></button></a>
-            </div>
-          </div>
-          <div class="col-6 col-sm-6">
-            <div class="col-6 col-sm-12 d-flex">
-              <div class="p-2">
-                <div
-                  class="bg-image hover-overlay ripple shadow-1-strong rounded "
-                  data-mdb-ripple-color="light">
-                  <img src="https://photo-cms-tpo.zadn.vn/300x180/Uploaded/2022/bpivpvoi/2022_08_20/showbiz7-6961.jpg" alt="" class="img-fluid"/>
-                  <a href="#!">
-                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);"></div>
-                  </a>
-                </div>
-              </div>
-              <div class="">
-                <i class="fas fa-lightbulb ps-1" style="color:#f64e4e;font-size: 12px "></i>
-                <i class="ps-2 pe-1 fa-sm far fa-clock" style="font-size: 10px"></i>
-                <span class=" date meta-item tie-icon " style="font-size: 12px">Oct 27, 2018</span>
-                <a href=""> <h5 class="ps-1" style="font-size: 14px">Showbiz 20/8: Sau khi công khai chuyện tình cảm, Doãn Hải My về quê Đoàn Văn Hậu ra mắt?</h5></a>
-              </div>
-            </div>
-            <div class="col-6 col-sm-12 d-flex">
-              <div class="p-2">
-                <div
-                  class="bg-image hover-overlay ripple shadow-1-strong rounded "
-                  data-mdb-ripple-color="light">
-                  <img src="https://photo-cms-tpo.zadn.vn/300x180/Uploaded/2022/bpivpvoi/2022_08_20/showbiz7-6961.jpg" alt="" class="img-fluid"/>
-                  <a href="#!">
-                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);"></div>
-                  </a>
-                </div>
-              </div>
-              <div class="">
-                <i class="fas fa-lightbulb ps-1" style="color:#f64e4e;font-size: 12px "></i>
-                <i class="ps-2 pe-1 fa-sm far fa-clock" style="font-size: 10px"></i>
-                <span class=" date meta-item tie-icon " style="font-size: 12px">Oct 27, 2018</span>
-                <a href=""> <h5 class="ps-1" style="font-size: 14px">Showbiz 20/8: Sau khi công khai chuyện tình cảm, Doãn Hải My về quê Đoàn Văn Hậu ra mắt?</h5></a>
-              </div>
-            </div>
-            <div class="col-6 col-sm-12 d-flex">
-              <div class="p-2">
-                <div
-                  class="bg-image hover-overlay ripple shadow-1-strong rounded "
-                  data-mdb-ripple-color="light">
-                  <img src="https://photo-cms-tpo.zadn.vn/300x180/Uploaded/2022/bpivpvoi/2022_08_20/showbiz7-6961.jpg" alt="" class="img-fluid"/>
-                  <a href="#!">
-                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);"></div>
-                  </a>
-                </div>
-              </div>
-              <div class="">
-                <i class="fas fa-lightbulb ps-1" style="color:#f64e4e;font-size: 12px "></i>
-                <i class="ps-2 pe-1 fa-sm far fa-clock" style="font-size: 10px"></i>
-                <span class=" date meta-item tie-icon " style="font-size: 12px">Oct 27, 2018</span>
-                <a href=""> <h5 class="ps-1" style="font-size: 14px">Showbiz 20/8: Sau khi công khai chuyện tình cảm, Doãn Hải My về quê Đoàn Văn Hậu ra mắt?</h5></a>
-              </div>
-            </div>
-            <div class="col-6 col-sm-12 d-flex">
-              <div class="p-2">
-                <div
-                  class="bg-image hover-overlay ripple shadow-1-strong rounded "
-                  data-mdb-ripple-color="light">
-                  <img src="https://photo-cms-tpo.zadn.vn/300x180/Uploaded/2022/bpivpvoi/2022_08_20/showbiz7-6961.jpg" alt="" class="img-fluid"/>
-                  <a href="#!">
-                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);"></div>
-                  </a>
-                </div>
-              </div>
-              <div class="">
-                <i class="ps-1 pe-1 fa-sm far fa-clock" style="font-size: 10px"></i>
-                <span class=" date meta-item tie-icon " style="font-size: 12px">Oct 27, 2018</span>
-                <a href=""> <h5 class="ps-1" style="font-size: 14px">Showbiz 20/8: Sau khi công khai chuyện tình cảm, Doãn Hải My về quê Đoàn Văn Hậu ra mắt?</h5></a>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="d-flex justify-content-between" >
-          <a href="" class="textHV" style="overflow: hidden;opacity: 0.5;cursor: pointer">
-            <i class="fas fa-angle-left border border-1 fs-7 p-2"> </i>
-            <span class="border border-1 fs-7 p-2"> Previous </span>
-          </a>
-          <a href=""class="textHV" style="overflow: hidden;opacity: 0.5;cursor: pointer;">
-            <span class="border border-1 fs-7 p-2"> Next </span>
-            <i class="fas fa-angle-right border border-1 fs-7 p-2"></i>
-          </a>
-        </div>
-
-      </div>
-
-
-    </div>
-    <div class="col-xs-12 col-md-4"> </div>
-
+    <div class="col-xs-12 col-md-4"></div>
   </div>
 </section>

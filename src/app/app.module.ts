@@ -48,19 +48,28 @@ import { MdbCookiesManagementService } from 'mdb-angular-cookies-management';
 import { MdbStorageManagementService } from 'mdb-angular-storage-management';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import {RouterModule, Routes} from "@angular/router";
+import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import {CommonModule} from "@angular/common";
+import { CommonModule } from '@angular/common';
 import { CategoryComponent } from './category/category.component';
+import { ExponentialStrengthPipe } from './share/ExponentialStrengthPipe';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'home', component:  HomeComponent},
-    { path: 'category', component:  CategoryComponent},
-
+  { path: 'home', component: HomeComponent },
+  { path: 'category/:id', component: CategoryComponent },
 ];
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, FooterComponent, HomeComponent, CategoryComponent],
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    FooterComponent,
+    HomeComponent,
+    CategoryComponent,
+    ExponentialStrengthPipe,
+    SidebarComponent,
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -107,11 +116,10 @@ const routes: Routes = [
     MdbMentionModule,
     RouterModule,
     CommonModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
   ],
   providers: [MdbCookiesManagementService, MdbStorageManagementService],
   bootstrap: [AppComponent],
-  exports: [RouterModule]
-
+  exports: [RouterModule],
 })
 export class AppModule {}

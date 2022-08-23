@@ -35,80 +35,87 @@
 <section class="main container">
   <div class="wrapper row py-4">
     <div class="col-xs-12 col-md-8">
-      <mdb-tabs
-        *ngIf="arrData.length == sizeRss"
-        class="my-4 custom-tabs"
-        id="tab-all"
-      >
-        <mdb-tab *ngFor="let item of arrData">
-          <ng-template mdbTabTitle>
-            <span>{{ item.heading }}</span>
-          </ng-template>
-          <ng-template mdbTabContent>
-            <div class="box-container">
-              <ul class="post-items">
-                <li
-                  class="post-item"
-                  *ngFor="
-                    let d of item.data.slice(0, 6);
-                    index as i;
-                    first as isFirst
-                  "
-                >
-                  <div
-                    *ngIf="isFirst"
-                    class="bg-image position-relative"
-                    style="
-                    background-image: url('{{ d.image }}');height: 100%;"
+      <div id="treding-new-wrapper">
+        <div class="title-wrapper">
+          <h2 class="title h4">Tin tức xu hướng</h2>
+        </div>
+        <mdb-tabs
+          *ngIf="arrData.length == sizeRss"
+          class="my-4 custom-tabs"
+          id="tab-all"
+        >
+          <mdb-tab *ngFor="let item of arrData | slice: 0:8">
+            <ng-template mdbTabTitle>
+              <span>{{ item.heading }}</span>
+            </ng-template>
+            <ng-template mdbTabContent>
+              <div class="box-container">
+                <ul class="post-items">
+                  <li
+                    class="post-item"
+                    *ngFor="
+                      let d of item.data.slice(0, 6);
+                      index as i;
+                      first as isFirst
+                    "
                   >
-                    <a href="#!">
+                    <div
+                      *ngIf="isFirst"
+                      class="bg-image position-relative"
+                      style="
+                        background-image: url('{{ d.image }}');height: 100%;"
+                    >
+                      <a href="#!">
+                        <div
+                          class="mask"
+                          style="
+                            background: linear-gradient(
+                              to bottom,
+                              transparent,
+                              rgba(0, 0, 0, 0.75)
+                            );
+                          "
+                        ></div>
+                      </a>
                       <div
-                        class="mask"
-                        style="
-                          background: linear-gradient(
-                            to bottom,
-                            transparent,
-                            rgba(0, 0, 0, 0.75)
-                          );
-                        "
-                      ></div>
-                    </a>
-                    <div class="carousel-caption d-none d-md-block text-start">
-                      <h3 class="carousel-title">{{ d.title }}</h3>
-                      <div class="carousel-date small">
-                        <i class="fab fa-hotjar"></i>
-                        <span>{{ d.updated }}</span>
+                        class="carousel-caption d-none d-md-block text-start"
+                      >
+                        <h3 class="carousel-title">{{ d.title }}</h3>
+                        <div class="carousel-date small">
+                          <i class="fab fa-hotjar"></i>
+                          <span>{{ d.updated }}</span>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div *ngIf="!isFirst" class="d-flex position-relative">
-                    <img
-                      src="{{ d.image }}"
-                      class="flex-shrink-0 me-3"
-                      style="
-                        max-width: 6.875rem;
-                        object-fit: cover;
-                        object-position: center;
-                      "
-                      alt="..."
-                    />
-                    <div>
-                      <span class="post-date">{{ d.updated }}</span>
-                      <h5 class="mt-0 small">{{ d.title }}</h5>
-                      <a href="#" class="stretched-link"></a>
+                    <div *ngIf="!isFirst" class="d-flex position-relative">
+                      <img
+                        src="{{ d.image }}"
+                        class="flex-shrink-0 me-3"
+                        style="
+                          max-width: 6.875rem;
+                          object-fit: cover;
+                          object-position: center;
+                        "
+                        alt="..."
+                      />
+                      <div>
+                        <span class="post-date">{{ d.updated }}</span>
+                        <h5 class="mt-0 small">{{ d.title }}</h5>
+                        <a href="#" class="stretched-link"></a>
+                      </div>
                     </div>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </ng-template>
-        </mdb-tab>
-      </mdb-tabs>
+                  </li>
+                </ul>
+              </div>
+            </ng-template>
+          </mdb-tab>
+        </mdb-tabs>
+      </div>
       <!--Racing and lifeStyle-->
-      <div class="row">
+      <div class="row" *ngIf="arrData.length === sizeRss">
         <div class="col-xs-12 col-md-6">
           <div class="d-flex justify-content-between">
-            <h5 class="p-2">Racing</h5>
+            <h5 class="p-2">{{ arrData[0].heading }}</h5>
             <div class="p-2">
               <a href=""
                 ><i class="fas fa-angle-left pe-1 ps-1 me-1 border border-1"></i
@@ -133,7 +140,7 @@
               <div class="bg-image hover-zoom">
                 <img
                   style="width: 100%; object-fit: cover"
-                  src="https://photo-cms-tpo.zadn.vn/300x180/Uploaded/2022/bpivpvoi/2022_08_20/showbiz7-6961.jpg"
+                  src="{{ arrData[0].data[0].image }}"
                   alt=""
                   class="img-fluid"
                 />
@@ -142,17 +149,14 @@
           </div>
           <div class="p-2">
             <i class="ps-1 pe-1 fa-sm far fa-clock"></i>
-            <span class="ps-1 date meta-item tie-icon">Oct 27, 2018</span>
+            <span class="ps-1 date meta-item tie-icon">{{
+              arrData[0].data[0].updated
+            }}</span>
             <a href="">
-              <h5 class="ps-1">
-                Showbiz 20/8: Sau khi công khai chuyện tình cảm, Doãn Hải My về
-                quê Đoàn Văn Hậu ra mắt?
-              </h5>
+              <h5 class="ps-1">{{ arrData[0].data[0].title }}</h5>
             </a>
             <p class="fs-7 ps-1">
-              TPO - Hình ảnh Doãn Hải My chụp ảnh cùng Đoàn Văn Hậu ở một vùng
-              quê khiến nhiều khán giả dự đoán người đẹp về Thái Bình ra mắt nhà
-              bạn trai.
+              {{ arrData[0].data[0].description | parseHtml | async }}
             </p>
             <a href=""
               ><button type="button" class="btn btn-info">
@@ -367,315 +371,13 @@
       </div>
     </div>
     <div class="social-widget-wrapper col-xs-12 col-md-4">
-      <div class="widget-title">Theo dõi chúng tôi</div>
-      <div class="row g-2">
-        <div class="social-widget col-xs-12 col-md-6">
-          <a
-            class="btn btn-primary w-100"
-            style="background-color: #55acee"
-            href="#!"
-            role="button"
-            ><i class="fab fa-twitter me-2"></i>Twitter</a
-          >
-        </div>
-        <div class="social-widget col-xs-12 col-md-6">
-          <a
-            class="btn btn-primary w-100"
-            style="background-color: #3b5998"
-            href="#!"
-            role="button"
-            ><i class="fab fa-facebook-f me-2"></i>Facebook</a
-          >
-        </div>
-        <!-- Twitter -->
-        <div class="social-widget col-xs-12 col-md-6">
-          <a
-            class="btn btn-primary w-100"
-            style="background-color: #55acee"
-            href="#!"
-            role="button"
-            ><i class="fab fa-twitter me-2"></i>Twitter</a
-          >
-        </div>
-        <!-- Google -->
-        <div class="social-widget col-xs-12 col-md-6">
-          <a
-            class="btn btn-primary w-100"
-            style="background-color: #dd4b39"
-            href="#!"
-            role="button"
-            ><i class="fab fa-google me-2"></i>Google</a
-          >
-        </div>
-        <!-- Instagram -->
-        <div class="social-widget col-xs-12 col-md-6">
-          <a
-            class="btn btn-primary w-100"
-            style="background-color: #ac2bac"
-            href="#!"
-            role="button"
-            ><i class="fab fa-instagram me-2"></i>Instagram</a
-          >
-        </div>
-        <!-- Linkedin -->
-        <div class="social-widget col-xs-12 col-md-6">
-          <a
-            class="btn btn-primary w-100"
-            style="background-color: #0082ca"
-            href="#!"
-            role="button"
-            ><i class="fab fa-linkedin-in me-2"></i>Linkedin</a
-          >
-        </div>
-        <!-- Pinterest -->
-        <div class="social-widget col-xs-12 col-md-6">
-          <a
-            class="btn btn-primary w-100"
-            style="background-color: #c61118"
-            href="#!"
-            role="button"
-            ><i class="fab fa-pinterest me-2"></i>Pinterest</a
-          >
-        </div>
-        <!-- Youtube -->
-        <div class="social-widget col-xs-12 col-md-6">
-          <a
-            class="btn btn-primary w-100"
-            style="background-color: #ed302f"
-            href="#!"
-            role="button"
-            ><i class="fab fa-youtube me-2"></i>Youtube</a
-          >
-        </div>
-      </div>
-      <div class="py-3">
-        <mdb-tabs [justified]="true">
-          <mdb-tab title="Recent">
-            <div class="box-container">
-              <ul class="">
-                <li class="post-item py-2">
-                  <div class="d-flex position-relative">
-                    <img
-                      src="https://mdbootstrap.com/img/new/standard/city/041.webp"
-                      class="flex-shrink-0 me-3"
-                      style="max-width: 6.875rem"
-                      alt="..."
-                    />
-                    <div>
-                      <span class="post-date">2022-08-14 16:05:47</span>
-                      <h5 class="mt-0 small">
-                        Ai chi trả cho những bữa tiệc của CLB Giám đốc CDC miền
-                        Bắc?
-                      </h5>
-                      <a href="#" class="stretched-link"></a>
-                    </div>
-                  </div>
-                </li>
-                <li class="post-item py-2">
-                  <div class="d-flex position-relative">
-                    <img
-                      src="https://mdbootstrap.com/img/new/standard/city/041.webp"
-                      class="flex-shrink-0 me-3"
-                      style="max-width: 6.875rem"
-                      alt="..."
-                    />
-                    <div>
-                      <span class="post-date">2022-08-14 16:05:47</span>
-                      <h5 class="mt-0 small">
-                        Ai chi trả cho những bữa tiệc của CLB Giám đốc CDC miền
-                        Bắc?
-                      </h5>
-                      <a href="#" class="stretched-link"></a>
-                    </div>
-                  </div>
-                </li>
-                <li class="post-item py-2">
-                  <div class="d-flex position-relative">
-                    <img
-                      src="https://mdbootstrap.com/img/new/standard/city/041.webp"
-                      class="flex-shrink-0 me-3"
-                      style="max-width: 6.875rem"
-                      alt="..."
-                    />
-                    <div>
-                      <span class="post-date">2022-08-14 16:05:47</span>
-                      <h5 class="mt-0 small">
-                        Ai chi trả cho những bữa tiệc của CLB Giám đốc CDC miền
-                        Bắc?
-                      </h5>
-                      <a href="#" class="stretched-link"></a>
-                    </div>
-                  </div>
-                </li>
-                <li class="post-item py-2">
-                  <div class="d-flex position-relative">
-                    <img
-                      src="https://mdbootstrap.com/img/new/standard/city/041.webp"
-                      class="flex-shrink-0 me-3"
-                      style="max-width: 6.875rem"
-                      alt="..."
-                    />
-                    <div>
-                      <span class="post-date">2022-08-14 16:05:47</span>
-                      <h5 class="mt-0 small">
-                        Ai chi trả cho những bữa tiệc của CLB Giám đốc CDC miền
-                        Bắc?
-                      </h5>
-                      <a href="#" class="stretched-link"></a>
-                    </div>
-                  </div>
-                </li>
-                <li class="post-item py-2">
-                  <div class="d-flex position-relative">
-                    <img
-                      src="https://mdbootstrap.com/img/new/standard/city/041.webp"
-                      class="flex-shrink-0 me-3"
-                      style="max-width: 6.875rem"
-                      alt="..."
-                    />
-                    <div>
-                      <span class="post-date">2022-08-14 16:05:47</span>
-                      <h5 class="mt-0 small">
-                        Ai chi trả cho những bữa tiệc của CLB Giám đốc CDC miền
-                        Bắc?
-                      </h5>
-                      <a href="#" class="stretched-link"></a>
-                    </div>
-                  </div>
-                </li>
-                <!--                <li class="post-item py-2">-->
-                <!--                  <div class="d-flex">-->
-                <!--                    <img-->
-                <!--                      src="https://mdbootstrap.com/img/new/standard/city/041.webp"-->
-                <!--                      class="flex-shrink-0 me-3"-->
-                <!--                      style="max-width: 6.875rem"-->
-                <!--                      alt="..."-->
-                <!--                    />-->
-                <!--                    <div>-->
-                <!--                      <span class="post-date">2022-08-14 16:05:47</span>-->
-                <!--                      <h5 class="mt-0 small"> Ai chi trả cho những bữa tiệc của CLB Giám đốc CDC miền Bắc? </h5>-->
-                <!--                      <a href="#" class="stretched-link"></a>-->
-                <!--                    </div>-->
-                <!--                  </div>-->
-                <!--                </li>-->
-              </ul>
-            </div>
-          </mdb-tab>
-          <mdb-tab title="Popular">
-            <div class="box-container">
-              <ul class="">
-                <li class="post-item py-2">
-                  <div class="d-flex">
-                    <img
-                      src="https://mdbootstrap.com/img/new/standard/city/041.webp"
-                      class="flex-shrink-0 me-3"
-                      style="max-width: 6.875rem"
-                      alt="..."
-                    />
-                    <div>
-                      <span class="post-date">2022-08-14 16:05:47</span>
-                      <h5 class="mt-0 small">
-                        Ai chi trả cho những bữa tiệc của CLB Giám đốc CDC miền
-                        Bắc?
-                      </h5>
-                      <a href="#" class="stretched-link"></a>
-                    </div>
-                  </div>
-                </li>
-                <li class="post-item py-2">
-                  <div class="d-flex">
-                    <img
-                      src="https://mdbootstrap.com/img/new/standard/city/041.webp"
-                      class="flex-shrink-0 me-3"
-                      style="max-width: 6.875rem"
-                      alt="..."
-                    />
-                    <div>
-                      <span class="post-date">2022-08-14 16:05:47</span>
-                      <h5 class="mt-0 small">
-                        Ai chi trả cho những bữa tiệc của CLB Giám đốc CDC miền
-                        Bắc?
-                      </h5>
-                      <a href="#" class="stretched-link"></a>
-                    </div>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </mdb-tab>
-          <mdb-tab title="Comments">Comments</mdb-tab>
-        </mdb-tabs>
-      </div>
-      <div class="d-flex flex-column align-items-center py-3">
-        <i class="fas fa-envelope fa-3x mb-4 text-muted"></i>
-        <h4 class="fa-sm">With Product You Purchase</h4>
-        <hr class="w-25" />
-        <h3 class="text-center">
-          Subscribe to our mailing list to get the new updates!
-        </h3>
-        <p class="fa-sm py-4">Lorem ipsum dolor sit amet, consectetur.</p>
-        <div
-          class="d-flex align-items-center input-group mb-3 border py-1 w-100"
-        >
-          <i class="fas fa-envelope px-2 text-muted"></i>
-          <input
-            type="text"
-            class="border-0 text-center text-muted flex-grow-1"
-            style="outline: none"
-            aria-label="Example text with button addon"
-            aria-describedby="button-addon1"
-            placeholder="Enter your Email address"
-          />
-        </div>
-        <div class="d-grid gap-2 w-100">
-          <button class="btn btn-primary" type="button">Subcribe</button>
-        </div>
-      </div>
-      <div class="py-3">
-        <div class="widget-title">Thể loại</div>
-        <ul class="">
-          <li
-            class="d-flex justify-content-between py-1 align-items-center"
-            style="font-size: 13px"
-          >
-            <div class="">
-              <i class="fas fa-angle-right me-1"></i>
-              <a href="" class="text-reset">Xã hội</a>
-            </div>
-            <span class="badge bg-primary">35</span>
-          </li>
-          <li
-            class="d-flex justify-content-between py-1 align-items-center"
-            style="font-size: 13px"
-          >
-            <div class="">
-              <i class="fas fa-angle-right me-1"></i>
-              <a href="" class="text-reset">Kinh tế</a>
-            </div>
-            <span class="badge bg-primary">3</span>
-          </li>
-          <li
-            class="d-flex justify-content-between py-1 align-items-center"
-            style="font-size: 13px"
-          >
-            <div class="">
-              <i class="fas fa-angle-right me-1"></i>
-              <a href="" class="text-reset">Địa ốc</a>
-            </div>
-            <span class="badge bg-primary">35</span>
-          </li>
-          <li
-            class="d-flex justify-content-between py-1 align-items-center"
-            style="font-size: 13px"
-          >
-            <div class="">
-              <i class="fas fa-angle-right me-1"></i>
-              <a href="" class="text-reset">Sức khỏe</a>
-            </div>
-            <span class="badge bg-primary">7</span>
-          </li>
-        </ul>
-      </div>
+      <app-sidebar></app-sidebar>
     </div>
   </div>
 </section>
+<mdb-loading [show]="showLoad" [fullscreen]="true">
+  <div class="loading-spinner">
+    <div class="spinner-border loading-icon" role="status"></div>
+    <span class="loading-text">Loading...</span>
+  </div>
+</mdb-loading>

@@ -9,7 +9,7 @@ import {parseString} from 'xml2js';
   providedIn: 'root'
 })
 export class FeedService {
-  constructor(private http:HttpClient) {
+  constructor() {
   }
   async getDataHome(): Promise<any> {
     const {data} = await homeApi.getDataHome();
