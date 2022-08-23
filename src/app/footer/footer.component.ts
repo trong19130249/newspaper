@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {FeedService} from "../share/feed.service";
 
 @Component({
   selector: 'app-footer',
@@ -6,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent implements OnInit {
+  coppyRight :any;
+  arrData: any[] = [];
+  constructor(private feedService : FeedService) { }
 
-  constructor() { }
+   async  ngOnInit(): Promise<any> {
+     const data = await this.feedService.getDataHome();
 
-  ngOnInit(): void {
+     const channel = data?.rss?.channel[0];
+     this.arrData = channel.item;
+     this.coppyRight = channel.copyright[0];
+    console.log(this.arrData)
   }
 
 }
