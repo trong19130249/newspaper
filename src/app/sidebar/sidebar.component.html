@@ -6,8 +6,7 @@
       style="background-color: {{ item.color }}"
       href="{{ item.link }}"
       role="button"
-      ><i class="fab {{ item.icon }} me-2"></i>{{ item.name }}</a
-    >
+      ><i class="fab {{ item.icon }} me-2"></i>{{ item.name }}</a>
   </div>
 </div>
 <div class="py-3">
@@ -15,143 +14,43 @@
     <mdb-tab title="Gần đây">
       <div class="box-container">
         <ul class="">
-          <li class="post-item py-2">
+          <li class="post-item py-2" *ngFor="let item of listItems | slice: 8: 15">
             <div class="d-flex position-relative">
               <img
-                src="https://mdbootstrap.com/img/new/standard/city/041.webp"
+                src= "{{item.image}}"
                 class="flex-shrink-0 me-3"
                 style="max-width: 6.875rem"
                 alt="..."
               />
               <div>
-                <span class="post-date">2022-08-14 16:05:47</span>
+                <span class="post-date">{{item.updated}}</span>
                 <h5 class="mt-0 small">
-                  Ai chi trả cho những bữa tiệc của CLB Giám đốc CDC miền Bắc?
+                  {{item.title}}
                 </h5>
-                <a href="#" class="stretched-link"></a>
+                <a routerLink="/posts/{{ item.link[0] | getLastUrl }}" class="stretched-link"></a>
               </div>
             </div>
           </li>
-          <li class="post-item py-2">
-            <div class="d-flex position-relative">
-              <img
-                src="https://mdbootstrap.com/img/new/standard/city/041.webp"
-                class="flex-shrink-0 me-3"
-                style="max-width: 6.875rem"
-                alt="..."
-              />
-              <div>
-                <span class="post-date">2022-08-14 16:05:47</span>
-                <h5 class="mt-0 small">
-                  Ai chi trả cho những bữa tiệc của CLB Giám đốc CDC miền Bắc?
-                </h5>
-                <a href="#" class="stretched-link"></a>
-              </div>
-            </div>
-          </li>
-          <li class="post-item py-2">
-            <div class="d-flex position-relative">
-              <img
-                src="https://mdbootstrap.com/img/new/standard/city/041.webp"
-                class="flex-shrink-0 me-3"
-                style="max-width: 6.875rem"
-                alt="..."
-              />
-              <div>
-                <span class="post-date">2022-08-14 16:05:47</span>
-                <h5 class="mt-0 small">
-                  Ai chi trả cho những bữa tiệc của CLB Giám đốc CDC miền Bắc?
-                </h5>
-                <a href="#" class="stretched-link"></a>
-              </div>
-            </div>
-          </li>
-          <li class="post-item py-2">
-            <div class="d-flex position-relative">
-              <img
-                src="https://mdbootstrap.com/img/new/standard/city/041.webp"
-                class="flex-shrink-0 me-3"
-                style="max-width: 6.875rem"
-                alt="..."
-              />
-              <div>
-                <span class="post-date">2022-08-14 16:05:47</span>
-                <h5 class="mt-0 small">
-                  Ai chi trả cho những bữa tiệc của CLB Giám đốc CDC miền Bắc?
-                </h5>
-                <a href="#" class="stretched-link"></a>
-              </div>
-            </div>
-          </li>
-          <li class="post-item py-2">
-            <div class="d-flex position-relative">
-              <img
-                src="https://mdbootstrap.com/img/new/standard/city/041.webp"
-                class="flex-shrink-0 me-3"
-                style="max-width: 6.875rem"
-                alt="..."
-              />
-              <div>
-                <span class="post-date">2022-08-14 16:05:47</span>
-                <h5 class="mt-0 small">
-                  Ai chi trả cho những bữa tiệc của CLB Giám đốc CDC miền Bắc?
-                </h5>
-                <a href="#" class="stretched-link"></a>
-              </div>
-            </div>
-          </li>
-          <!--                <li class="post-item py-2">-->
-          <!--                  <div class="d-flex">-->
-          <!--                    <img-->
-          <!--                      src="https://mdbootstrap.com/img/new/standard/city/041.webp"-->
-          <!--                      class="flex-shrink-0 me-3"-->
-          <!--                      style="max-width: 6.875rem"-->
-          <!--                      alt="..."-->
-          <!--                    />-->
-          <!--                    <div>-->
-          <!--                      <span class="post-date">2022-08-14 16:05:47</span>-->
-          <!--                      <h5 class="mt-0 small"> Ai chi trả cho những bữa tiệc của CLB Giám đốc CDC miền Bắc? </h5>-->
-          <!--                      <a href="#" class="stretched-link"></a>-->
-          <!--                    </div>-->
-          <!--                  </div>-->
-          <!--                </li>-->
         </ul>
       </div>
     </mdb-tab>
     <mdb-tab title="Phổ biến">
       <div class="box-container">
         <ul class="">
-          <li class="post-item py-2">
-            <div class="d-flex">
+          <li class="post-item py-2" *ngFor="let item of listItems | slice: 16: 23">
+            <div class="d-flex position-relative">
               <img
-                src="https://mdbootstrap.com/img/new/standard/city/041.webp"
+                src= "{{item.image}}"
                 class="flex-shrink-0 me-3"
                 style="max-width: 6.875rem"
                 alt="..."
               />
               <div>
-                <span class="post-date">2022-08-14 16:05:47</span>
+                <span class="post-date">{{item.updated}}</span>
                 <h5 class="mt-0 small">
-                  Ai chi trả cho những bữa tiệc của CLB Giám đốc CDC miền Bắc?
+                  {{item.title}}
                 </h5>
-                <a href="#" class="stretched-link"></a>
-              </div>
-            </div>
-          </li>
-          <li class="post-item py-2">
-            <div class="d-flex">
-              <img
-                src="https://mdbootstrap.com/img/new/standard/city/041.webp"
-                class="flex-shrink-0 me-3"
-                style="max-width: 6.875rem"
-                alt="..."
-              />
-              <div>
-                <span class="post-date">2022-08-14 16:05:47</span>
-                <h5 class="mt-0 small">
-                  Ai chi trả cho những bữa tiệc của CLB Giám đốc CDC miền Bắc?
-                </h5>
-                <a href="#" class="stretched-link"></a>
+                <a routerLink="/posts/{{ item.link[0] | getLastUrl }}" class="stretched-link"></a>
               </div>
             </div>
           </li>
@@ -165,7 +64,7 @@
   <h4 class="fa-sm">With Product You Purchase</h4>
   <hr class="w-25" />
   <h3 class="text-center">
-    Subscribe to our mailing list to get the new updates!
+    Đăng ký mail của bạn để nhận bài viết mới
   </h3>
   <p class="fa-sm py-4">Lorem ipsum dolor sit amet, consectetur.</p>
   <div class="d-flex align-items-center input-group mb-3 border py-1 w-100">
@@ -176,55 +75,25 @@
       style="outline: none"
       aria-label="Example text with button addon"
       aria-describedby="button-addon1"
-      placeholder="Enter your Email address"
+      placeholder="Nhập Email của bạn"
     />
   </div>
   <div class="d-grid gap-2 w-100">
-    <button class="btn btn-primary" type="button">Subcribe</button>
+    <button class="btn btn-primary" type="button">Đăng ký</button>
   </div>
 </div>
 <div class="py-3">
   <div class="widget-title">Thể loại</div>
-  <ul class="">
+  <ul class="" *ngIf="navItems!==undefined">
     <li
       class="d-flex justify-content-between py-1 align-items-center"
-      style="font-size: 13px"
+      style="font-size: 13px" *ngFor="let item of navItems"
     >
       <div class="">
         <i class="fas fa-angle-right me-1"></i>
-        <a href="" class="text-reset">Xã hội</a>
+        <a routerLink="/category/{{ item.id }}" class="text-reset">{{item.title}}</a>
       </div>
-      <span class="badge bg-primary">35</span>
-    </li>
-    <li
-      class="d-flex justify-content-between py-1 align-items-center"
-      style="font-size: 13px"
-    >
-      <div class="">
-        <i class="fas fa-angle-right me-1"></i>
-        <a href="" class="text-reset">Kinh tế</a>
-      </div>
-      <span class="badge bg-primary">3</span>
-    </li>
-    <li
-      class="d-flex justify-content-between py-1 align-items-center"
-      style="font-size: 13px"
-    >
-      <div class="">
-        <i class="fas fa-angle-right me-1"></i>
-        <a href="" class="text-reset">Địa ốc</a>
-      </div>
-      <span class="badge bg-primary">35</span>
-    </li>
-    <li
-      class="d-flex justify-content-between py-1 align-items-center"
-      style="font-size: 13px"
-    >
-      <div class="">
-        <i class="fas fa-angle-right me-1"></i>
-        <a href="" class="text-reset">Sức khỏe</a>
-      </div>
-      <span class="badge bg-primary">7</span>
+      <span class="badge bg-primary">100</span>
     </li>
   </ul>
 </div>
