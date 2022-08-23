@@ -12,24 +12,25 @@
         <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
           <!-- Content -->
           <h6 class="text-uppercase fw-bold mb-4 pd-left">
-            Most Viewed Posts
+            Bài đăng được xem nhiều nhất
           </h6>
           <ul class="list-item">
-            <li class="item">
+            <li *ngFor="let item of arrData | slice:0:3 " class="item">
               <a href="">
-                <span class="date meta-item tie-icon">Oct 27, 2018</span>
-                <h3>After all is said and done, more is done</h3> </a>
+                <span class="date meta-item tie-icon">{{item.updated}}</span>
+
+                <h3>{{item.title}}</h3> </a>
             </li>
-            <li class="item">
-              <a href="">
-                <span class="date meta-item tie-icon">Oct 27, 2018</span>
-                <h3>Success is not a good teacher failure makes you humble</h3> </a>
-            </li>
-            <li class="item">
-              <a href="">
-                <span class="date meta-item tie-icon">Oct 27, 2018</span>
-                <h3>Not who has much is rich, but who gives much</h3> </a>
-            </li>
+<!--            <li class="item">-->
+<!--              <a href="">-->
+<!--                <span class="date meta-item tie-icon">Oct 27, 2018</span>-->
+<!--                <h3>Success is not a good teacher failure makes you humble</h3> </a>-->
+<!--            </li>-->
+<!--            <li class="item">-->
+<!--              <a href="">-->
+<!--                <span class="date meta-item tie-icon">Oct 27, 2018</span>-->
+<!--                <h3>Not who has much is rich, but who gives much</h3> </a>-->
+<!--            </li>-->
           </ul>
 
         </div>
@@ -39,20 +40,22 @@
         <div class="col-md-2 col-lg-2 col-xl-3 mx-auto mb-4">
           <!-- Links -->
           <h6 class="text-uppercase fw-bold mb-4">
-            Last Modified Posts
+
+            BÀI ĐĂNG ĐƯỢC SỬA ĐỔI CUỐI CÙNG
           </h6>
           <!-- Modal gallery -->
           <section class="">
             <!-- Section: Images -->
             <section class="">
               <div class="row">
-                <div class="p-1 col-lg-4 col-md-12 p-0 mb-lg-0">
+
+                <div *ngFor="let item of arrData | slice:0:7 " class="p-1 col-lg-4 col-md-12 p-0 mb-lg-0">
                   <div
                     class="bg-image hover-overlay ripple shadow-1-strong rounded"
                     data-ripple-color="light"
                   >
                     <img
-                      src="https://mdbcdn.b-cdn.net/img/screens/yt/screen-video-1.webp"
+                      src="{{item.image}}"
                       class="w-100"
                     />
                     <a href="#!" data-mdb-toggle="modal" data-mdb-target="#exampleModal1">
@@ -61,77 +64,6 @@
                   </div>
                 </div>
 
-                <div class="p-1 col-lg-4 mb-4 p-0 mb-lg-0">
-                  <div
-                    class="bg-image hover-overlay ripple shadow-1-strong rounded"
-                    data-ripple-color="light"
-                  >
-                    <img
-                      src="https://mdbcdn.b-cdn.net/img/screens/yt/screen-video-2.webp"
-                      class="w-100"
-                    />
-                    <a href="#!" data-mdb-toggle="modal" data-mdb-target="#exampleModal2">
-                      <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);"></div>
-                    </a>
-                  </div>
-                </div>
-
-                <div class="p-1 col-lg-4 mb-4 p-0 mb-lg-0">
-                  <div
-                    class="bg-image hover-overlay ripple shadow-1-strong rounded"
-                    data-ripple-color="light"
-                  >
-                    <img
-                      src="https://mdbcdn.b-cdn.net/img/screens/yt/screen-video-3.webp"
-                      class="w-100"
-                    />
-                    <a href="#!" data-mdb-toggle="modal" data-mdb-target="#exampleModal3">
-                      <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);"></div>
-                    </a>
-                  </div>
-                </div>
-                <div class="p-1 col-lg-4 mb-4 p-0 mb-lg-0">
-                  <div
-                    class="bg-image hover-overlay ripple shadow-1-strong rounded"
-                    data-ripple-color="light"
-                  >
-                    <img
-                      src="https://mdbcdn.b-cdn.net/img/screens/yt/screen-video-3.webp"
-                      class="w-100"
-                    />
-                    <a href="#!" data-mdb-toggle="modal" data-mdb-target="#exampleModal3">
-                      <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);"></div>
-                    </a>
-                  </div>
-                </div>
-                <div class="p-1 col-lg-4 mb-4 p-0 mb-lg-0">
-                  <div
-                    class="bg-image hover-overlay ripple shadow-1-strong rounded"
-                    data-ripple-color="light"
-                  >
-                    <img
-                      src="https://mdbcdn.b-cdn.net/img/screens/yt/screen-video-3.webp"
-                      class="w-100"
-                    />
-                    <a href="#!" data-mdb-toggle="modal" data-mdb-target="#exampleModal3">
-                      <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);"></div>
-                    </a>
-                  </div>
-                </div>
-                <div class="p-1 col-lg-4 mb-4 p-0 mb-lg-0">
-                  <div
-                    class="bg-image hover-overlay ripple shadow-1-strong rounded"
-                    data-ripple-color="light"
-                  >
-                    <img
-                      src="https://mdbcdn.b-cdn.net/img/screens/yt/screen-video-3.webp"
-                      class="w-100"
-                    />
-                    <a href="#!" data-mdb-toggle="modal" data-mdb-target="#exampleModal3">
-                      <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);"></div>
-                    </a>
-                  </div>
-                </div>
 
               </div>
             </section>
@@ -230,7 +162,7 @@
         <div class="col-md-3 col-lg-2 col-xl-3 mx-auto mb-4">
             <!-- Links -->
             <h6 class="text-uppercase fw-bold mb-4">
-                Tags
+                Thẻ
             </h6>
             <div class="textdoc">
                 <button type="button" class=" btn btn-outline-light-1">
@@ -295,7 +227,7 @@
         <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
           <!-- Links -->
           <h6 class="text-uppercase fw-bold mb-4">
-            Follow us
+            Theo giỏi chúng tôi
           </h6>
           <p class="p-size">
             <i class="fab fa-twitter"></i> Coming Soon, Stay Tuned
@@ -322,7 +254,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-4">
-        <img class="w-100" src="https://jannah.tielabs.com/jannah/wp-content/uploads/sites/8/2016/10/logo-lite@2x.png" alt="">
+        <img class="w-100" src="https://static-cms-tpo.zadn.vn/v3/web/styles/img/logo-web-white.png" style="background-color: #a50a02" alt="">
       </div>
       <div class="col-md-4">
         Jannah is a Clean Responsive WordPress Newspaper, Magazine, News and Blog theme. Packed with options that allow you to completely customize your website to your needs.
@@ -342,8 +274,7 @@
 
   <!-- Copyright -->
   <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-    © 2020 Copyright:
-    <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+    {{ coppyRight}}
   </div>
 
   <!-- Copyright -->
