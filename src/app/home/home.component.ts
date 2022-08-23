@@ -15,6 +15,8 @@ export class HomeComponent implements OnInit {
   arrData: any[] = [];
   sizeRss = this.rssLinkService.LIST_RSS_HOME.length;
   showLoad = true;
+  merged: any = [];
+  sizeShow: number = 8;
 
   constructor(
     private feedService: FeedService,
@@ -56,8 +58,18 @@ export class HomeComponent implements OnInit {
         id: element.id,
         data: dataArr?.rss?.channel[0]?.item,
       });
+      this.merged = [
+        ...this.merged,
+        ...dataArr?.rss?.channel[0]?.item.slice(0, 4),
+      ];
     }
+    // console.log(this.merged);
     // console.log(this.arrData);
     this.showLoad = false;
+  }
+  showMore() {
+    let newLength = this.sizeShow + 8;
+    this.sizeShow =
+      newLength <= this.merged.length ? newLength : this.merged.length;
   }
 }

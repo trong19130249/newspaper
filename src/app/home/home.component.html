@@ -102,7 +102,10 @@
                       <div>
                         <span class="post-date">{{ d.updated }}</span>
                         <h5 class="mt-0 small">{{ d.title }}</h5>
-                        <a href="#" class="stretched-link"></a>
+                        <a
+                          routerLink="/posts/{{ d.link[0] | getLastUrl }}"
+                          class="stretched-link"
+                        ></a>
                       </div>
                     </div>
                   </li>
@@ -114,7 +117,7 @@
       </div>
 
       <!--technology-->
-      <div class="row">
+      <!-- <div class="row">
         <div class="col-sm-12 pt-3 pb-3" style="background-color: #e4f7f6">
           <div class="d-flex justify-content-between">
             <h5 class="p-2" style="color: #0ab3af">Racing</h5>
@@ -349,12 +352,38 @@
             </a>
           </div>
         </div>
-      </div>
+      </div> -->
       <!--    What's new-->
       <div class="Whatnew">
-        <h5 style="color: #dd3333" class="ps-2">What's new</h5>
-        <div class="row">
-          <div class="col-xs-12 col-md-6">
+        <h5 style="color: #dd3333" class="ps-2">Tin mới</h5>
+        <div class="row" *ngIf="merged !== undefined">
+          <div
+            *ngFor="let item of merged.slice(0, sizeShow)"
+            class="col-xs-12 col-md-6"
+          >
+            <div class="p-2">
+              <a routerLink="/posts/{{ item.link[0] | getLastUrl }}">
+                <div class="bg-image hover-zoom">
+                  <img src="{{ item.image }}" alt="" class="img-fluid" />
+                </div>
+              </a>
+            </div>
+            <div class="p-2">
+              <i class="ps-1 pe-1 fa-sm far fa-clock"></i>
+              <span class="ps-1 date meta-item tie-icon">{{
+                item.updated
+              }}</span>
+              <a routerLink="/posts/{{ item.link[0] | getLastUrl }}">
+                <h5 class="ps-1">
+                  {{ item.title }}
+                </h5></a
+              >
+              <p class="fs-7 ps-1">
+                {{ item.description | parseHtml | async }}
+              </p>
+            </div>
+          </div>
+          <!-- <div class="col-xs-12 col-md-6">
             <div class="p-2">
               <a href="">
                 <div class="bg-image hover-zoom">
@@ -381,40 +410,12 @@
                 nhà bạn trai.
               </p>
             </div>
-          </div>
-          <div class="col-xs-12 col-md-6">
-            <div class="p-2">
-              <a href="">
-                <div class="bg-image hover-zoom">
-                  <img
-                    src="https://photo-cms-tpo.zadn.vn/300x180/Uploaded/2022/bpivpvoi/2022_08_20/showbiz7-6961.jpg"
-                    alt=""
-                    class="img-fluid"
-                  />
-                </div>
-              </a>
-            </div>
-            <div class="p-2">
-              <i class="ps-1 pe-1 fa-sm far fa-clock"></i>
-              <span class="ps-1 date meta-item tie-icon">Oct 27, 2018</span>
-              <a href="">
-                <h5 class="ps-1">
-                  Showbiz 20/8: Sau khi công khai chuyện tình cảm, Doãn Hải My
-                  về quê Đoàn Văn Hậu ra mắt?
-                </h5></a
-              >
-              <p class="fs-7 ps-1">
-                TPO - Hình ảnh Doãn Hải My chụp ảnh cùng Đoàn Văn Hậu ở một vùng
-                quê khiến nhiều khán giả dự đoán người đẹp về Thái Bình ra mắt
-                nhà bạn trai.
-              </p>
-            </div>
-          </div>
+          </div> -->
 
           <!-- Force next columns to break to new line at md breakpoint and up -->
-          <div class="w-100 d-none d-md-block"></div>
+          <!-- <div class="w-100 d-none d-md-block"></div> -->
 
-          <div class="col-xs-12 col-md-6">
+          <!-- <div class="col-xs-12 col-md-6">
             <div class="p-2">
               <a href="">
                 <div class="bg-image hover-zoom">
@@ -469,7 +470,16 @@
                 nhà bạn trai.
               </p>
             </div>
-          </div>
+          </div> -->
+        </div>
+        <div class="d-flex my-5 justify-content-center">
+          <button
+            type="button"
+            class="btn btn-primary text-center"
+            (click)="showMore()"
+          >
+            Xem thêm
+          </button>
         </div>
       </div>
     </div>
