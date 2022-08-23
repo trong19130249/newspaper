@@ -54,11 +54,13 @@ import { CommonModule } from '@angular/common';
 import { CategoryComponent } from './category/category.component';
 import { ExponentialStrengthPipe } from './share/ExponentialStrengthPipe';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { PostComponent } from './post/post.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'category/:id', component: CategoryComponent },
+  { path: 'post/:link', component: PostComponent },
 ];
 @NgModule({
   declarations: [
@@ -69,6 +71,7 @@ const routes: Routes = [
     CategoryComponent,
     ExponentialStrengthPipe,
     SidebarComponent,
+    PostComponent,
   ],
   imports: [
     BrowserModule,

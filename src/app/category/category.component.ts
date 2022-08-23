@@ -20,20 +20,23 @@ export class CategoryComponent implements OnInit {
   ) {}
 
   async ngOnInit() {
-    let id = this.route.snapshot.paramMap.get('id');
+    let id:any ;
+    this.route.paramMap.subscribe(async params => {
+      id = params.get("id");
+      let rssObj: any = this.rssLinkService.LIST_RSS_HOME.find(
+        (x) => x.id === id
+      );
+      this.title = rssObj.title;
+      if (this.title) {
+        this.titleService.setTitle(this.title);
+      }
+      let dataTemp = await this.feedService.getData(rssObj?.link);
+      this.arrItem = dataTemp.rss.channel[0].item;
+    })
+
     this.route.queryParams.subscribe((params) => {
       let pageIndex = params['orderby'];
-      console.log(pageIndex);
     });
-    let rssObj: any = this.rssLinkService.LIST_RSS_HOME.find(
-      (x) => x.id === id
-    );
-    this.title = rssObj.title;
-    if (this.title) {
-      this.titleService.setTitle(this.title);
-    }
-    let dataTemp = await this.feedService.getData(rssObj?.link);
-    this.arrItem = dataTemp.rss.channel[0].item;
-    console.log(this.arrItem);
+
   }
 }

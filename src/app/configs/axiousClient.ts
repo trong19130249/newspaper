@@ -1,12 +1,15 @@
-import axios from "axios";
+import axios from 'axios';
 export const axiosClient = axios.create({
-    baseURL: "https://tienphong.vn/rss/",
-    headers: {
-        "Content-Type": "application/xml"
-    }
+  baseURL: 'https://tienphong.vn/',
+  headers: {
+    'Content-Type': 'application/xml',
+  },
 });
-axios.interceptors.response.use(function (response) {
+axios.interceptors.response.use(
+  function (response) {
     return response;
-},function (error){
+  },
+  function (error) {
     return Promise.reject(error);
-})
+  }
+);

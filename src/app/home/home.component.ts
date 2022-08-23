@@ -29,16 +29,18 @@ export class HomeComponent implements OnInit {
       this.titleService.setTitle(this.title);
     }
     let listTemp: any = Array.isArray(channel.item) ? channel.item : [];
-
+    // console.log(listTemp)
     for (const i of listTemp) {
       const descTemp: any = await this.feedService.parseDescription(
         '<div>' + i.description + '</div>'
       );
+      // console.log(descTemp)
+      // console.log(i.title[0]+i.category[0]+i.image[0]+i.link[0]+i.updated[0]);
       this.listItems.push(
         new Item(
           i.title[0],
           i.category[0],
-          descTemp?.div._,
+          descTemp,
           i.image[0],
           i.link[0],
           i.updated[0]
@@ -54,7 +56,7 @@ export class HomeComponent implements OnInit {
         data: dataArr?.rss?.channel[0]?.item,
       });
     }
-    console.log(this.arrData);
+    // console.log(this.arrData);
     this.showLoad = false;
   }
 }
