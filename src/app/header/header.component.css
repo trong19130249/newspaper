@@ -173,8 +173,8 @@ header .sidenav {
 }
 
 .dropdown-menu {
-  margin-top: 176px;
   border-radius: 0;
+  top:100%;
 }
 .dropdown-menu .seperate-line {
   height: 2px;

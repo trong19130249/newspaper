@@ -9,7 +9,11 @@ import { RssLinkService } from '../share/rss-link.service';
 })
 export class HeaderComponent implements OnInit {
   navItems:any;
-  constructor(
+   today = new Date();
+   date = this.today.getDate()+'-'+(this.today.getMonth()+1)+'-'+this.today.getFullYear();
+   time = this.today.getHours() + ":" + this.today.getMinutes() + ":" + this.today.getSeconds();
+   dateTime = this.date+' '+this.time;
+   constructor(
     private feedService: FeedService,
     private rssLinkService: RssLinkService
   ) {}
@@ -23,4 +27,5 @@ export class HeaderComponent implements OnInit {
       (x) => x.id === id
     );
   }
+
 }

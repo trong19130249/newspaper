@@ -16,7 +16,8 @@ export class PostComponent implements OnInit {
   constructor(public sanitizer: DomSanitizer, private route: ActivatedRoute) {}
 
   ngOnInit() {
-    let paramUrl = this.route.snapshot.paramMap.get('url');
+    let paramUrl = this.route.snapshot.paramMap.get('id');
+    // console.log(paramUrl);
     if (paramUrl) {
       this.url = 'https://tienphong.vn/' + paramUrl;
     }
